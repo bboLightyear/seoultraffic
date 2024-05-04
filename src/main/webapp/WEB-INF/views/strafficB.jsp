@@ -22,5 +22,8 @@
 		});
 	</script>
 <div id="map" style="width :100% ;height:600px;"></div>
+<input type="button" value="저장소 위치"/>
+<input type="button" value="저장소 위치"/>
+<input type="button" value="저장소 위치"/>
 </body>
 </html>
