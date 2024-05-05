@@ -17,5 +17,4 @@ public class BStorageInfoService implements StrafficService{
 		// TODO Auto-generated method stub
 		
 	}
-
 }
