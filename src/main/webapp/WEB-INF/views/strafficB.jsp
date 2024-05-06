@@ -75,7 +75,7 @@ function bstorageinfo() {
 }
 </script>
 <body>
-<div id="map" style="width :100% ;height:600px;"></div>
+<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 <input type="button" onclick="bstorageinfo()" value="저장소 위치"/>
 <input type="button" value="?"/>
 <input type="button" value="?"/>

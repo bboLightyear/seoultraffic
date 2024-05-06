@@ -9,6 +9,8 @@ html {
     display: flex;
     border-bottom: 3px solid #1034a6;
     height: 100px;
+    position: relative;  /* 추가 */
+    z-index: 100;       /* 추가 */
 }
 .wrapper{
     width: 100%;
@@ -43,10 +45,13 @@ html {
 }
 .depth_1{
     display: none;
+    position: relative;
+    pointer-events: none; /* 포인터 이벤트를 받지 않음 */ 
 }
 /* 2차 메뉴가 보이도록 */
 .wrapper > ul > li:hover > ul {
     display: block;
+    pointer-events: auto; /* 마우스 오버 시 포인터 이벤트 활성화 */
 }
 
 /* 1차 메뉴를 제한 구역으로 설정 */

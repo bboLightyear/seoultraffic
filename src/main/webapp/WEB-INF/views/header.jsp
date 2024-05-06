@@ -11,7 +11,7 @@
 <header>
     <section id="header">
         <div class="title">
-            <a href="" class="header_logo"><img src="resources/img/mainlogo.png" alt="" width="250px" height="100px"></a>
+            <a href="/straffic" class="header_logo"><img src="resources/img/mainlogo.png" alt="" width="250px" height="100px"></a>
         </div>
         <div class="wrapper">
             <ul class="lists">
