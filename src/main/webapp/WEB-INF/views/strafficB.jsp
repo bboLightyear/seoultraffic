@@ -60,12 +60,23 @@ function makeOutListener(infowindow) {
 }
 </script>
 <script>
+function replyrview() {
+	$.ajax({
+		type : "post",
+		async : true,
+		url : "bstorageinfo",
 
+		success : function(data) {
+			console.log("success");
+			console.log(data);
+		}			
+	})
+}
 </script>
 <body>
 <div id="map" style="width :100% ;height:600px;"></div>
-<!-- <input type="button" onclick="bstorageinfo()" value="저장소 위치"/>
+<input type="button" onclick="bstorageinfo()" value="저장소 위치"/>
 <input type="button" value="?"/>
-<input type="button" value="?"/> -->
+<input type="button" value="?"/>
 </body>
 </html>

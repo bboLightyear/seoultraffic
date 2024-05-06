@@ -24,15 +24,11 @@ public class StrafficController {
 		return "home";
 	}
 
-	@ResponseBody
-	@RequestMapping(value = "/strafficB", method = RequestMethod.POST)
-	public String strafficB(@RequestBody HashMap<String, Object> map, Model model) {
+	@RequestMapping(value = "/strafficB", method = RequestMethod.GET)
+	public String strafficB(Model model) {
 		
-		strafficService = new BStorageInfoService();
-		strafficService.excute(model, map);
 		
 		return "strafficB";
 	}
-	
 	
 }

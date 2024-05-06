@@ -6,7 +6,5 @@ import org.springframework.ui.Model;
 
 public interface StrafficService {
 
-	public void excute(Model model);
 
-	public void excute(Model model, HashMap<String, Object> map);
 }
