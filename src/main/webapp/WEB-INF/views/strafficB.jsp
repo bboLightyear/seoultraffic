@@ -8,6 +8,7 @@
 <title>Seoul Traffic</title>
 <%@ include file="header.jsp" %>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&autoload=false"></script>
 <script>
 	kakao.maps.load(function(){
@@ -60,7 +61,7 @@ function makeOutListener(infowindow) {
 }
 </script>
 <script>
-function replyrview() {
+function bstorageinfo() {
 	$.ajax({
 		type : "post",
 		async : true,

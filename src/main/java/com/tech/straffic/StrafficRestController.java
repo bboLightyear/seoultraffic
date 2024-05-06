@@ -20,13 +20,13 @@ public class StrafficRestController {
 		
 		StringBuilder result = new StringBuilder();
         try {
-            String apiUrl = "http://openapi.seoul.go.kr:8088/55756f727977687138317466627a7a/json/bikeList/1/1000/";
+            String apiUrl = "http://openapi.seoul.go.kr:8088/55756f727977687138317466627a7a/json/bikeList/1/10/";
 
             URL url = new URL(apiUrl);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), "UTF-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(),"UTF-8"));
 
             String returnLine;
 
