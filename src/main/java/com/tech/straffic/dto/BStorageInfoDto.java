@@ -55,6 +55,4 @@ public class BStorageInfoDto {
 	public void setStationId(String stationId) {
 		this.stationId = stationId;
 	}
-	
-	
 }
