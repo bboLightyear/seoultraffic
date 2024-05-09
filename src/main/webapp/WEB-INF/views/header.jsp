@@ -33,7 +33,7 @@
                 </li>
                 <li class="lists_li"><a href="">공지사항</a>
                     <ul class="depth_1">
-                        <li><a href="">공지사항</a></li>
+                        <li><a href="strafficnotice">공지사항</a></li>
                         <li><a href="">FAQ</a></li>
                     </ul>
                 </li>

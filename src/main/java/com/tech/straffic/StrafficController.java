@@ -30,5 +30,12 @@ public class StrafficController {
 		
 		return "strafficB";
 	}
+
+	@RequestMapping(value = "/strafficnotice", method = RequestMethod.GET)
+	public String strafficnotice(Model model) {
+		
+		
+		return "strafficnotice";
+	}
 	
 }
