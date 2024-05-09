@@ -7,4 +7,11 @@
 	background-color: #1034a6;
 	color: white;
 }
+.sidebarbtn{/*사이드버튼*/
+	width: 80px;
+	height: 80px;
+	background-color: #f6f6f6;
+	border: none;
+	border-bottom: 2px solid #ddd;
+}
 </style>

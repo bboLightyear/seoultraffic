@@ -1,15 +1,45 @@
 
-var map; 
+var map, mapTypes; 
 
 //지도 생성하는 메소드 오류 가끔 발생하니 load메소드 사용해서 지도 생성
 kakao.maps.load(function(){
     var container = document.getElementById('map');
     var options = {
-        center: new kakao.maps.LatLng(37.575789, 126.976777),
-        level: 8
+        center: new kakao.maps.LatLng(37.5667, 126.978),
+        level: 5
     };
     map = new kakao.maps.Map(container, options);
-});
+    
+    mapTypes = { 
+    		traffic :  kakao.maps.MapTypeId.TRAFFIC,
+    		bicycle : kakao.maps.MapTypeId.BICYCLE
+    };
+}); 
+// 체크 박스를 선택하면 호출되는 함수
+window.onload = function() {
+   setOverlayMapTypeId(); // 페이지 로드 시 함수 실행
+};
+
+function setOverlayMapTypeId() {
+	var  chkTraffic = document.getElementById('chkTraffic'),
+	chkBicycle = document.getElementById('chkBicycle');
+	
+	// 지도 타입을 제거합니다
+	for (var type in mapTypes) {
+		map.removeOverlayMapTypeId(mapTypes[type]);    
+	}
+	
+	// 교통정보 체크박스가 체크되어있으면 지도에 교통정보 지도타입을 추가합니다
+	if (chkTraffic.checked) {
+		map.addOverlayMapTypeId(mapTypes.traffic);    
+	}
+	
+	// 자전거도로정보 체크박스가 체크되어있으면 지도에 자전거도로정보 지도타입을 추가합니다
+	if (chkBicycle.checked) {
+		map.addOverlayMapTypeId(mapTypes.bicycle);    
+	}
+	
+} 
 
 function bstorageinfo() {
     $.ajax({
