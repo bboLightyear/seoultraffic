@@ -38,17 +38,24 @@
 				</form>
 			</div>
 			
-			<table>
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
-			</table>
+			<table class="rwd-table">
+			    <tbody>
+			      	<tr>
+				        <th style="width: 50px;">번호</th>
+				        <th style="width: 620px;">제목</th>
+				        <th style="width: 100px;">작성일</th>
+				        <th style="width: 60px;">조회수</th>
+			      	</tr>
+			      	<tr>
+			        	<td data-th="Supplier Code">1</td>
+			        	<td data-th="Supplier Name">공지사항입니다.공지사항입니다.공지사항입니다.</td>
+			        	<td data-th="Invoice Date">06/25/2016</td>
+			        	<td data-th="Invoice Number">2</td>
+			      	</tr>
+			    </tbody>
+		  	</table>
 			
+			<a href="" style="color: white; background-color: #1034a6; text-decoration: none; font-weight: bold; font-size: 20px;">글쓰기</a>
 		</div>
 	
 	</div>
