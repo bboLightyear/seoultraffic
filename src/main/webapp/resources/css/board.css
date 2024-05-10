@@ -1,0 +1,995 @@
+@charset "UTF-8";
+
+/*cshome바디*/
+.cs_home_section1{
+	
+	width: 850px;
+	height: 380px;
+	margin : 0 auto;
+}
+.cs_wrap_all {/*바디 전체 감싸는 랩*/
+	height: auto;
+	width: 100%;
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치할 때 */
+}
+
+.cs_wrap_content {/*바디 공지사항 고객센터 감싸는 랩*/
+	padding: 0 0 32px;
+	display: flex;
+}
+.cs_wrap_home_notice{/*공지사항 감싸는 랩*/
+	width: 427px;
+	height: 348px;
+	display: block;
+    unicode-bidi: isolate;
+}
+.cs_home_notice_head{/*공지사항 더보기*/
+	display: flex;
+}
+.cs_home_notice_h2{/*공지사항 제목*/
+	width: 300px;
+	height: 28px;
+	margin: 44px 0px 20px;
+}
+.cs_home_notice_h2_a{/*공지사항 a태그*/
+	text-decoration: none;
+	color:black;
+}
+.cs_home_notice_viewmoew{/*더보기 버튼*/
+	width: 127px;
+	height: 28px;
+	margin: 44px 0px 20px;
+	text-decoration: none;
+	color: gray;
+	font-size: 15px;
+}
+.cs_home_notice_ul{/*공지사할 ul*/
+ 	margin-top: 20px; 
+	width: 427px;
+	height: 204px;
+	list-style: none;
+ 	/* margin: 0; */
+	padding: 0; 
+	display: block;
+}
+.cs_home_notice_li{/*고지사항 li*/
+	width: 391px;
+	height: 28px;
+	margin: 0 0 16px;
+	padding: 0 0 0 10px;
+	vertical-align: center;
+	line-height: 28px;
+}
+.cs_home_notice_li_icon{/*공지사항 아이콘*/
+	width: 28px;
+	height: 28px;
+	display: inline-flex;
+}
+.cs_home_notice_li_contnet{/*공지사항 내용*/
+	text-decoration: none;
+	color:black;
+}
+.cs_wrap_home_csinfor{ /*고객센터 감싸는 랩*/
+	width: 375px;
+	height: 260px;
+	padding: 28px 24px;
+	margin-top: 32px;
+}
+.cs_home_csinfor_h2{
+	margin: 0px;
+	padding: 0px;
+}
+.cs_home_csinfor_pwrap{
+	margin-top: 15px;
+	margin-bottom: 25px;
+}
+.cs_home_csinfor_p{
+	font-size: 14px;
+    line-height: 20px;
+    color: #828C94;
+    position: relative;
+    padding-left: 20px;
+    margin: 0;
+}
+.cs_wrap_mailbtn{
+    display: flex;
+    flex-direction: row; /* 요소들을 세로로 배치할 때 */
+    margin-top: 10px;
+}
+.emailbtn:hover, .emailcopy:hover {
+    background-color: #1034a6;  /* 마우스를 올렸을 때의 배경 색상 설정 */
+    color: white;               /* 텍스트 색상을 흰색으로 설정 */
+}
+.chatbtn{
+	width: 372px;
+	height: 44px;
+	display: inline-flex;
+	justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(218, 221, 224);
+    border-radius: 4px;
+}
+.emailbtn{
+	/* width: 183px;
+	height: 44px;
+	padding: 0 16px; */
+	text-decoration: none;
+	width:184px;
+	margin: 0px;
+    background: none;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(218, 221, 224);
+}
+.emailcopy{
+	/* width: 183px;
+	height: 44px;
+	padding: 0 16px; */
+    width: 184px;
+	margin: 0px;
+    background: none;
+    font-size: 14px;
+    line-height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(47, 52, 56);
+    border: 1px solid rgb(218, 221, 224);
+}
+
+/*아래 qna섹션*/
+
+/*qna 제목div*/
+.cs_home_qnaboard_head{
+	width: 850px;
+	margin : 0 auto;
+}
+/*제목 속 h2*/
+.cs_home_qnaboard_head_h2{
+	margin: 0;
+}
+/*제목 속 a태그*/
+.cs_home_qnaboard_head_h2_a1{
+	text-decoration: none;
+	color: black;
+}
+/*제목 속 a태그*/
+.cs_home_qnaboard_head_h2_a2{
+	text-decoration: none;
+	color: gray;
+	font-size: 15px;
+}
+/*qna 위 여백*/
+.cs_home_white_space{
+	width: 100%;
+	height: 30px;
+}
+.cs_home_wrap_qnaboard{
+	width: 100%;
+/* 	max-height: 700px; */
+	min-height: 170px;
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치할 때 */
+}
+.cs_home_qnaboard_nav_wrap{
+	width: 100%;
+	height: 80px;
+	
+}
+/*qna 위의 네비 바*/
+.cs_home_qnaboard_nav{
+	width: 95%;
+	height: 38px;
+	padding: 20px 24px 0;
+	text-align: center;
+}
+/*네비 속 라벨*/
+.cs_home_qnaboard_nav_label{
+	height: 38px;
+	border: 1px solid gray;
+	border-radius : 40px;
+	line-height: 0px;
+	margin-right: 10px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+/*네비 속 a태그*/
+.cs_home_qnaboard_nav_label_a{
+	text-decoration: none;
+	color: gray;
+}
+.cs_home_qnaboard_nav_label:hover, .cs_home_qnaboard_nav_label_a:hover {
+    background-color: #1034a6;  /* 마우스를 올렸을 때의 배경 색상 설정 */
+    color: white;               /* 텍스트 색상을 흰색으로 설정 */
+    border: none;
+}
+
+/* Link specific styles, might require stronger specificity or !important to override defaults */
+.cs_home_qnaboard_nav_label_a:hover {
+    text-decoration: none;     /* 링크의 밑줄 제거 */
+}
+
+.cs_home_section2{
+	
+	flex: 1; /* 나머지 공간을 차지하도록 설정 */
+	width: 850px;
+	display: flex;
+	margin : 0 auto;
+	flex-direction: column;
+}
+.cs_home_qna_ul_wrap{
+	width: 850px;
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치할 때 */
+}
+.cs_home_qna_ul{
+	margin-top: 20px; 
+	height: auto;
+	min-height:87px;
+	list-style: none;
+ 	/* margin: 0; */
+	padding: 0; 
+	display: block;
+}
+.cs_home_qna_li{
+	width: 820px;
+	height: 28px;
+	margin: 0 0 16px;
+	padding: 0 0 0 30px;
+	vertical-align: center;
+	line-height: 28px;
+}
+.cs_home_qna_li_icon{/*공지사항 아이콘*/
+	width: 28px;
+	height: 28px;
+	display: inline-flex;
+}
+.cs_home_qna_li_contnet{/*공지사항 내용*/
+	text-decoration: none;
+	color:black;
+}/*cshome바디*/
+
+/* qnalist바디 */
+.cs_qnaboard_whitespace{
+	width: 100%;
+	height: 30px;
+}
+.cs_list_section1{
+	width: 100%;
+	height: 50px;
+	justify-content: center;
+	display: flex;
+}
+.cs_list_head{
+	width: 850px;
+	height: 100%;
+    display: flex;
+    padding-left: 30px;
+    align-items: center;
+}
+.cs_list_head_h{
+	margin: 0;
+}
+.cs_list_section2{
+	width: 100%;
+	height: auto;
+	min-height: 465px;
+	justify-content: center;
+	display: flex;
+}
+.cs_list_serch_bar{
+	width: 100%;
+	height: 60px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1034a6;
+    border-radius: 5px;
+  	box-shadow: 0 2px 5px rgba(0,0,0,.10);
+}
+.cs_list_table{
+	border: 1px #a39485 solid;
+  	font-size: .9em;
+  	box-shadow: 0 2px 5px rgba(0,0,0,.10);
+  	width: 100%;
+  	height: 400px;
+  	border-collapse: collapse;
+  	border-radius: 5px;
+  	overflow: hidden;
+}
+/* 열 너비 설정 */
+.cs_list_table_th_no {
+    width: 50px; /* 첫 번째 열 */
+}
+
+.cs_list_table_th_title {
+    width: 500px; /* 두 번째 열 */
+}
+
+.cs_list_table_th_name {
+    width: 120px; /* 세 번째 열 */
+}
+
+.cs_list_table_th_date, .cs_list_table_th_hits {
+    width: 90px; /* 네 번째와 다섯 번째 열 */
+}
+.cs_list_table_thead{
+	font-weight: bold;
+  	color: #fff;
+ 	background: #1034a6;
+ 	height: 30px;
+}
+.cs_list_table_th{
+	text-align: center;
+}
+.cs_list_table td {
+    text-align: center;
+}
+.cs_list_table_title{
+	text-decoration: none;
+	color: black;
+}
+.cs_list_table_title:hover {
+    color: #1034a6; /* 마우스를 올렸을 때 링크 텍스트의 색을 빨간색으로 변경 */
+}
+.cs_list_wrap_writebtn{
+	width: 100%;
+	height: 60px;
+	display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.cs_list_writebtn_loc{
+	width: 30%;
+	display: flex;
+    justify-content: right;
+}
+.cs_list_writebtn{
+	width: 80px; 
+    height: 38px;
+    border: 1px solid gray;
+    border-radius: 40px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+	justify-content: center;
+    display: flex;
+}
+.cs_list_writebtn:hover {
+    border-color: #1034a6; /* 마우스를 올렸을 때 링크 텍스트의 색을 빨간색으로 변경 */
+}
+ .cs_list_writebtn:hover .cs_list_writebtn_a {
+    color: #1034a6;
+  }
+.cs_list_writebtn_a{
+	text-decoration: none;
+	color: gray;
+}
+.cs_list_pagenum_a{
+	text-decoration: none;
+	color: gray;
+}
+.cs_list_wrap_board{
+	width: 850px;
+}
+.cs_list_section3{
+	width: 100%;
+	height: 50px;
+	justify-content: center;
+	display: flex;
+}
+.cs_list_wrap_pagenum{
+	width: 850px;
+	height: 100%;
+    display: flex;
+	justify-content: center;
+}/* qnalist바디 */
+
+/*qnacontent바디*/
+.cs_content_section1{
+	width: 100%;
+	height: 70px;
+	justify-content: center;
+	display: flex;
+	margin-top: 20px;
+}
+.cs_list_head_wrap_span{
+	margin-top: 10px;
+	margin-left: 0px;
+}
+.cs_list_head_span{
+	color: darkgray;
+	font-size: 15px;
+	font-weight: 600;
+}
+.cs_content_head{
+	width: 850px;
+	height: 100%;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+ 	/* text-align: center; */
+ 	justify-content: center;
+}
+.cs_list_head_wrap_h{
+	display:flex;
+	margin: 0;
+	align-items: center;
+}
+.cs_list_head_h{
+	margin-left: 10px;
+}
+.cs_list_head_p{
+	margin: 0;	
+}
+.cs_content_section2{
+	width: 100%;
+	height: auto;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+.cs_content_section2_content_p{
+	color: black;
+	font-size: 17px;
+	font-weight: 600;
+}
+.cs_content_section2_img{
+	max-width: 350px;
+	max-height: 350px;
+}
+.cs_content_section2_title{
+	width: 850px;
+	height: 30px;;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+ 	justify-content: center;
+}
+.cs_content_section2_content{
+	width: 850px;
+	height: auto;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+ 	justify-content: center;
+}
+.cs_content_section3{
+	width: 100%;
+	height: auto;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+.cs_content_section3_rcnt{
+	width: 850px;
+	height: 50px;
+    display: flex;
+    flex-direction: column;
+ 	justify-content: center;
+}
+.cs_content_section3_rcnt_span{
+	color: lightskyblue;
+}
+.cs_content_section3 form {
+	margin-top: 25px;
+	display: flex; /* 폼 내부 요소들을 가로로 배치하기 위해 Flexbox를 사용합니다. */
+	flex-direction: row; /* 요소들을 가로로 배치합니다. */
+	align-items: center; /* 요소들을 수직 중앙 정렬합니다. */
+}
+.cs_content_section3_replyform{
+	width: 850px;
+	height: 100%;
+    display: flex;
+ 	justify-content: center;
+ 	flex: 1; /* 폼 요소들이 유연하게 확장되도록 설정합니다. */
+	flex-direction: row; /* 내부 요소들을 세로로 배치합니다. */
+	align-items: center; /* 내부 요소들을 수직 중앙 정렬합니다. */
+}
+.cs_content_section3_replyform_ti{
+	border: 1px solid gray;
+	border-radius : 10px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.cs_content_section3_replyform_textarea{
+	width: 700px;
+	height: 25px;
+	border: none;
+	outline: none;
+	resize: none;
+	overflow-y: auto;
+	font-size: 17px;
+	margin-left: 10px;
+}
+.cs_content_section3_replyform_textarea_x{
+	width: 700px;
+	height: 25px;
+	border: none;
+	outline: none;
+	resize: none;
+	overflow-y: auto;
+	font-size: 17px;
+	margin-left: 10px;
+}
+.cs_content_section4{
+	width: 100%;
+	height: auto;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+.cs_content_section4_wrap_rreply{
+	width: 750px;
+	height: 100%;
+    display: flex;
+ 	justify-content: center;
+ 	flex: 1; /* 폼 요소들이 유연하게 확장되도록 설정합니다. */
+	flex-direction: column; /* 내부 요소들을 세로로 배치합니다. */
+	align-items: center;  /* 내부 요소들을 수직 중앙 정렬합니다. */
+	margin-top: 40px;
+}
+.cs_content_section4_wrap_rreply_c{
+	width:766px;
+	background-color: darkgray;
+	border-radius: 10px;
+	margin-left: 40px;
+}
+.cs_content_section4_wrap_rreply_ni{
+	width: 750px;
+	height: 30px;
+    align-items: center;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.cs_content_section4_wrap_rreply_ni_h4{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 15px;
+}
+.cs_content_section4_wrap_rreply_content{
+	width: 750px;
+	height: 30px;
+	align-items: center;
+    display: flex;
+    margin-top: 10px;
+}
+.cs_content_section4_wrap_rreply_wrap_btn{
+	display: flex;
+	margin-top: 10px;
+}
+.cs_content_section4_wrap_rreply_btn{
+	border: none;
+	background-color: white;
+	color: gray;
+}
+.reply_input_btn{
+	background-color: white;
+	border: none;
+	color: lightskyblue;
+	font-weight: bold; 
+	font-size: 15px;
+	margin-right: 10px;
+}
+.cs_content_section4_wrap_replyrview{
+	margin-top: 20px;
+	margin-left: 10px;
+	display: flex;
+	flex-direction: column;
+}
+.cs_content_section4_replyrview{
+	background-color: lightgray;
+	border-radius: 10px;
+	width: 700px;
+	margin-left: 30px;
+	margin-right: 20px;
+}
+.cs_content_section4_replyrview_rni{
+	align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+.cs_content_section4_replyrview_wrap_inputform{
+    display:none;
+    flex-direction: column;
+    align-items: center;
+}
+.cs_content_section4_replyrview_inputform{
+	width: 660px;
+	height: 30px;
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    border-color: lightskyblue;
+}
+.cs_content_section4_replyrview_inputform_ta{
+	width: 570px;
+	height: 25px;
+	border: none;
+	outline: none;
+	resize: none;
+	overflow-y: auto;
+	font-size: 17px;
+	margin-left: 15px; 	
+}
+.cs_content_editbtn{
+	width: 80px; 
+    height: 38px;
+    border: 1px solid gray;
+    border-radius: 40px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+	justify-content: center;
+    display: flex;
+}
+.cs_content_editbtn:hover {
+    border-color: #1034a6; /* 마우스를 올렸을 때 링크 텍스트의 색을 빨간색으로 변경 */
+}
+.cs_content_editbtn_a{
+	text-decoration: none;
+	color: gray;
+}
+ .cs_content_editbtn:hover .cs_content_editbtn_a {
+    color: #1034a6;
+}
+.cs_content_delbtn{
+	width: 80px; 
+    height: 38px;
+    border: 1px solid #1034a6;
+    border-radius: 40px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+	justify-content: center;
+    display: flex;
+    margin-left: 5px;
+}
+.cs_content_delbtn:hover {
+    border-color: gray; /* 마우스를 올렸을 때 링크 텍스트의 색을 빨간색으로 변경 */
+}
+.cs_content_delbtn_a{
+	text-decoration: none;
+	color: #1034a6;
+}
+ .cs_content_delbtn:hover .cs_content_delbtn_a {
+    color: gray;
+}
+.cs_content_wrap_edbtn{
+	display: flex;
+	justify-content: center;
+}
+.cs_content_edbtn{
+	width: 850px;
+	display: flex;
+	justify-content: right;
+}
+/*글상세*/
+
+/*글쓰기 폼*/
+.cs_write_wrap_all{
+	width: 100%;
+	height: auto;
+	background-color: #E2F0FE;
+	display: flex;
+	justify-content: center;
+	/* align-items: center; */  /* 내부 요소들을 수직 중앙 정렬합니다. */
+}
+.cs_write_wrap_form{
+	background-color: white;
+	width: 720px;
+}
+.cs_write_wrap_form_back{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.cs_write_wrap_form_back_a{
+	text-decoration: none;
+	color: #b1b8c0;
+}
+.cs_write_wrap_form_head{
+	width: 100%;
+	height:30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+.cs_write_wrap_form_ni{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-left: 45px;
+	margin-top: 30px;
+}
+.cs_write_wrap_form_wrap_div{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cs_write_wrap_form_div{
+	width: 630px;
+	height: 70px;
+	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 20px;
+}
+.cs_write_wrap_form_div_selbox{
+	margin-top: 20px;
+	width: 180px;
+}
+.cs_write_wrap_form_title{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.cs_write_wrap_form_title_it{
+	width: 630px;
+	height: 30px;
+	font-size: 18px;
+	color : gray;
+	padding: 0;
+}
+.cs_write_wrap_form_wrap_content{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.cs_write_wrap_form_content{
+	display: flex;
+	width: 630px;
+	flex-direction: column;
+}
+.cs_write_wrap_form_content_ta{
+	width: 630px;
+	height: 200px;
+	padding: 0;
+	font-size: 17px;
+	color : gray;
+}
+.cs_write_wrap_form_wrap_writebtn{
+	width:100%;
+	height:50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: px;
+}
+.cs_write_wrap_form_writebtn{
+	width: 400px;
+	height: 35px;
+	border: none;
+	border-radius:10px;
+	background-color: #1034a6;
+	color: white;
+	font-size: 15px;
+}
+.cs_write_wrap_form_writebtn:hover {
+	background: white;
+	color: #1034a6;
+	border: 2px solid #1034a6;
+	font-weight: bold;
+}
+.cs_write_wrap_form_wrap_filebtn{
+	width:100%;
+	height:50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 30px;
+}
+.cs_write_wrap_form_filebtn{
+	width: 400px;
+	height: 35px;
+	border: none;
+	border-radius:10px;
+	background-color: #1e90ff;
+	color: white;
+}
+.custom-file-upload {
+	width: 400px;
+    height: 35px;
+    display: inline-block;
+    cursor: pointer;
+    background: #1034a6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    text-align: center;
+	line-height: 35px;
+	font-size: 15px;
+}
+.custom-file-upload:hover {
+    background: white;
+    color: #1034a6;
+    border: 2px solid #1034a6;
+    font-weight: bold;
+}
+.cs_write_wrap_form_file_wrap_display{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cs_write_wrap_form_file_display{
+	display: none;
+	width: 400px;
+    height: auto;
+    background-color: #b1b8c0;
+    border-radius: 10px;
+    align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+/*글쓰기 폼*/
+/*메일*/
+.cs_mail_wrap_all{
+	height: auto;
+	width: 100%;
+    display: flex;
+    flex-direction: column; /* 요소들을 세로로 배치할 때 */
+    justify-content: center;
+    align-items: center;
+}
+.cs_mail_wrap_title{
+	width: 750px;
+}
+.cs_mail_wrap_form_title{
+	height: 80px;
+	margin-top: 30px;
+}
+.cs_mail_wrap_form_title_it{
+	width: 750px;
+	height: 35px;
+	font-size: 18px;
+	color : gray;
+	padding: 0;
+	border: 2px solid #1034a6;
+	margin-top: 5px;
+	border-radius: 5px;
+}
+.cs_mail_wrap_form_title_it:focus {
+    border-color: #1034a6; /* 초기 보더 색상 유지 */
+    outline: none;        /* 브라우저 기본 포커스 테두리 제거 */
+}
+.cs_mail_wrap_title_it{
+	width: 750px;
+	margin-top: 10px;
+}
+.cs_mail_wrap_form_wrap_content{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+.cs_mail_wrap_form_content{
+	display: flex;
+	width: 750px;
+	flex-direction: column;
+}
+.cs_mail_wrap_form_content_ta{
+	width: 750px;
+	height: 200px;
+	padding: 0;
+	font-size: 17px;
+	color : gray;
+	resize: none;
+	/* border-color: #1034a6; */
+	border: 2px solid #1034a6;
+	border-radius: 5px;
+	margin-top: 5px;
+}
+.cs_mail_wrap_form_content_ta:focus {
+    border-color: #1034a6; /* 초기 보더 색상 유지 */
+    outline: none;        /* 브라우저 기본 포커스 테두리 제거 */
+}
+.cs_mail_wrap_selectBox{
+	width: 750px;
+	margin-top: 10px;
+}
+select::-ms-expand { 
+	display: none;
+}
+.select {
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.selectBox {
+  position: relative;
+  width: 350px;
+  height: 37px;
+  border-radius: 4px;
+  border: 2px solid #1034a6;
+}
+.selectBox .select {
+  width: inherit;
+  height: inherit;
+  background: transparent;
+  border: 0 none;
+  outline: 0 none;
+  padding: 0 5px;
+  position: relative;
+  z-index: 3; // select가 위로 올라와야 함
+}
+.selectBox .select option {
+  background: #e2f0fe;
+  color: #b1b8c0;
+  padding: 3px 0;
+  font-size: 16px;
+}
+.selectBox .icoArrow {
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  z-index: 1; 
+  width: 35px; 
+  height: inherit;
+  border-left: 2px solid #1034a6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selectBox .icoArrow img {
+  width: 50%;
+  transition: .3s; // 부드럽게 회전
+}
+
+.selectBox .select:focus + .icoArrow img {
+  transform: rotate(180deg);
+}
+/*메일*/
+
+
+
+/* 푸터 */
+footer {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 130px;
+	position: relative;
+	transform: translateY(10%);
+	border-top: 1px solid #b1b8c0;
+	display: flex;
+	background-color: #b1b8c0;
+}

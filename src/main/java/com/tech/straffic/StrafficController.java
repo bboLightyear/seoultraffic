@@ -1,19 +1,25 @@
 package com.tech.straffic;
 
-import java.util.HashMap;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.tech.straffic.service.BStorageInfoService;
+import com.tech.straffic.service.NoticeListService;
+import com.tech.straffic.service.NoticeWriteService;
 import com.tech.straffic.service.StrafficService;
+import com.tech.straffic.vo.SearchVO;
 
 @Controller
 public class StrafficController {
+	
+	@Autowired
+	private SqlSession sqlSession;
 	
 	StrafficService strafficService;
 	
@@ -32,10 +38,34 @@ public class StrafficController {
 	}
 
 	@RequestMapping(value = "/strafficnotice", method = RequestMethod.GET)
-	public String strafficnotice(Model model) {
+	public String strafficnotice(Model model,HttpServletRequest request,SearchVO searchVO) {
+		System.out.println("strafficnotice controller");
 		
+		model.addAttribute("request",request);
+		model.addAttribute("searchVo",searchVO);
+		
+		strafficService = new NoticeListService(sqlSession);
+		strafficService.execute(model);
 		
 		return "strafficnotice";
 	}
 	
+	@RequestMapping(value = "/noticewriteview", method = RequestMethod.GET)
+	public String noticewriteview(Model model,HttpServletRequest request) {
+		System.out.println("strafficnoticewriteview controller");
+		
+		return "noticewriteview";
+	}
+
+	@RequestMapping(value = "/noticewrite", method = RequestMethod.GET)
+	public String noticewrite(Model model,MultipartHttpServletRequest mftrequest) {
+		System.out.println("strafficnoticewrite controller");
+		
+		model.addAttribute("mftrequest",mftrequest);
+		
+		strafficService = new NoticeWriteService(sqlSession);
+		strafficService.execute(model);
+		
+		return "redirect:strafficnotice";
+	}
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,16 +47,19 @@
 				        <th style="width: 100px;">작성일</th>
 				        <th style="width: 60px;">조회수</th>
 			      	</tr>
-			      	<tr>
-			        	<td data-th="Supplier Code">1</td>
-			        	<td data-th="Supplier Name">공지사항입니다.공지사항입니다.공지사항입니다.</td>
-			        	<td data-th="Invoice Date">06/25/2016</td>
-			        	<td data-th="Invoice Number">2</td>
-			      	</tr>
+			    
+				    <c:forEach items="${list }" var="dto">
+			        	<tr>
+			                <td>${dto.sno}</td>
+			                <td><a href="">${dto.stitle}</a></td>		          
+			                <td><fmt:formatDate value="${dto.sdate}" pattern="yy/MM/dd" /></td>
+			            	<td>${dto.shit}</td>
+			        	</tr>
+			       	</c:forEach>
 			    </tbody>
 		  	</table>
 			
-			<a href="" style="color: white; background-color: #1034a6; text-decoration: none; font-weight: bold; font-size: 20px;">글쓰기</a>
+			<a href="noticewriteview" style="color: white; background-color: #1034a6; text-decoration: none; font-weight: bold; font-size: 20px;">글쓰기</a>
 		</div>
 	
 	</div>

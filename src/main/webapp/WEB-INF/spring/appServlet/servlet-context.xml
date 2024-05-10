@@ -23,6 +23,27 @@
 	
 	<context:component-scan base-package="com.tech.straffic" />
 	
+		<!-- mybatis setting -->
+	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<beans:property name="username" value="hr" />
+		<beans:property name="password" value="123456" />
+	</beans:bean>
+
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="mapperLocations" value="classpath:com/tech/straffic/dao/mapper/*.xml" />
+		<beans:property name="configuration">
+	        <beans:bean class="org.apache.ibatis.session.Configuration">
+	            <beans:property name="jdbcTypeForNull" value="VARCHAR"/>
+	        </beans:bean>
+    	</beans:property>
+	</beans:bean>
+
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"></beans:constructor-arg>
+	</beans:bean>
 	
 	
 </beans:beans>

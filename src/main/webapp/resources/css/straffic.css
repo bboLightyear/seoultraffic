@@ -73,6 +73,7 @@
 	height: 90px;
 	border: 1px solid #f6f6f6;
 	background-color: #ddd; 
+	border-radius: .4em;
 }
 .rwd-table {
   	margin: auto;
@@ -85,7 +86,7 @@
 
 .rwd-table tr:first-child {
   	border-top: none;
-  	background: #428bca;
+  	background: #1034a6;
   	color: #fff;
 }
 
