@@ -4,13 +4,48 @@
 
 <mapper namespace="com.tech.straffic.dao.StrafficDao">
 
-	<select id="noticeList" resultType="com.tech.straffic.dto.StrafficNoticeDto">
+	<select id="noticeList" resultType="com.tech.straffic.dto.StrafficNoticeDto">		
+		SELECT 
+        	SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC
+        FROM 
+        	(SELECT 
+        		ROWNUM NUM,N.* FROM (SELECT SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC 
+        	FROM 
+        		STRAFFICNOTICE WHERE STITLE LIKE '%'||#{param3}||'%'
+        	ORDER BY 
+        		SNO DESC ) 
+        	N)
+        WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+
+	<select id="noticeList1" resultType="com.tech.straffic.dto.StrafficNoticeDto">
 		SELECT SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC 
 		FROM STRAFFICNOTICE
+		WHERE SNO = #{param1}
 	</select>
 	
-	<update id="update">
-	
+	<update id="noticewrite">
+		INSERT INTO STRAFFICNOTICE 
+		VALUES(STRAFFICNOTICE_SEQ.NEXTVAL,#{param1},#{param2},sysdate,0,#{param3})
 	</update>
-   
+
+	<update id="noticeDelete">
+		DELETE FROM STRAFFICNOTICE WHERE SNO = #{param1} 
+	</update>
+	
+	<select id="selfilesrc" resultType="com.tech.straffic.dto.StrafficNoticeDto">
+		SELECT SFILESRC 
+		FROM STRAFFICNOTICE
+		WHERE SNO = #{param1}
+	</select>
+	
+   	<update id="noticeEdit">
+      	UPDATE STRAFFICNOTICE SET STITLE=#{param1},SCONTENT=#{param2},SFILESRC=#{param3} 
+      	WHERE SNO=#{param4}
+   	</update>
+	
+	<select id="selNoticeTotCount" resultType="Integer">
+      	SELECT COUNT(*)
+      	FROM STRAFFICNOTICE
+   	</select>
 </mapper>

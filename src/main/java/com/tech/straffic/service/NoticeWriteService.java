@@ -3,8 +3,6 @@ package com.tech.straffic.service;
 import java.io.File;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,9 +28,14 @@ public class NoticeWriteService implements StrafficService {
 		String scontent = mftrequest.getParameter("scontent");
 		MultipartFile sfile = mftrequest.getFile("sfile");
 		
+		
+		System.out.println("stitle :"+stitle);
+		System.out.println("scontent :"+scontent);
+		System.out.println("sfile :"+sfile);
+		
 		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
 		
-		String path="";
+		String path="C:\\23setspring\\springwork23\\seoultraffic\\src\\main\\webapp\\resources\\upload";
 		
 		// 파일 이름 업로드 당시 밀리초로 변경
 		MultipartFile mf = sfile; // 단일 파일 처리
@@ -54,6 +57,8 @@ public class NoticeWriteService implements StrafficService {
 		        // 예외 처리 로직
 		        System.err.println("업로드 실패: " + e.getMessage());
 		    }
+		}else {
+			dao.noticewrite(stitle,scontent, null);
 		}
 	}
 }

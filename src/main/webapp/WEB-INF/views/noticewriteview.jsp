@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -19,7 +18,7 @@
 			
 			<div class="cs_write_wrap_form_head"><h3 style="margin: 0;">글쓰기</h3></div>
 		
-			<form action="noticewrite" method="post">
+			<form action="noticewrite" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 				
 				<div class="cs_write_wrap_form_title">
 					<input type="text" class="cs_write_wrap_form_title_it" name="stitle" value="제목을 입력해주세요." onfocus="clearInput(this)"/>
@@ -46,7 +45,7 @@
 	    				<i class="fa fa-cloud-upload"></i> 파일 첨부하기
 					</label>
 					
-					<input id="file-upload" type="file" class="cs_write_wrap_form_filebtn" name="sfile" style="display: none;" onchange="displayFileName(this)"/>
+					<input id="file-upload" type="file" class="cs_write_wrap_form_filebtn" name="sfile" style="display: none;" multiple="multiple"  onchange="displayFileName(this)"/>
 				</div><!--cs_write_wrap_form_wrap_filebtn-->
 				
 				<div class="cs_write_wrap_form_file_wrap_display">

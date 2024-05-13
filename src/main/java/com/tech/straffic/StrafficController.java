@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.tech.straffic.service.NoticeContentService;
+import com.tech.straffic.service.NoticeDeleteService;
+import com.tech.straffic.service.NoticeEditService;
 import com.tech.straffic.service.NoticeListService;
 import com.tech.straffic.service.NoticeWriteService;
 import com.tech.straffic.service.StrafficService;
@@ -57,7 +60,7 @@ public class StrafficController {
 		return "noticewriteview";
 	}
 
-	@RequestMapping(value = "/noticewrite", method = RequestMethod.GET)
+	@RequestMapping(value = "/noticewrite", method = RequestMethod.POST)
 	public String noticewrite(Model model,MultipartHttpServletRequest mftrequest) {
 		System.out.println("strafficnoticewrite controller");
 		
@@ -67,5 +70,55 @@ public class StrafficController {
 		strafficService.execute(model);
 		
 		return "redirect:strafficnotice";
+	}
+	
+	@RequestMapping(value = "/noticecontent", method = RequestMethod.GET)
+	public String noticecontent(Model model,HttpServletRequest request) {
+		System.out.println("noticecontent controller");
+		
+		model.addAttribute("request",request);
+		
+		strafficService = new NoticeContentService(sqlSession);
+		strafficService.execute(model);
+		
+		return "noticecontent";
+	}
+
+	@RequestMapping(value = "/noticeDelete", method = RequestMethod.GET)
+	public String noticeDelete(Model model,HttpServletRequest request) {
+		System.out.println("noticeDelete controller");
+		
+		model.addAttribute("request",request);
+		
+		strafficService = new NoticeDeleteService(sqlSession);
+		strafficService.execute(model);
+		
+		return "redirect:strafficnotice";
+	}
+
+	@RequestMapping(value = "/noticeeditview", method = RequestMethod.GET)
+	public String noticeEditview(Model model,HttpServletRequest request) {
+		System.out.println("noticeEditview controller");
+		
+		model.addAttribute("request",request);
+		
+		strafficService = new NoticeContentService(sqlSession);
+		strafficService.execute(model);
+		
+		return "noticeeditview";
+	}
+	
+	@RequestMapping(value = "/noticeedit", method = RequestMethod.POST)
+	public String noticeedit(Model model,MultipartHttpServletRequest mftrequest) {
+		System.out.println("noticeedit controller");
+		
+		model.addAttribute("mftrequest",mftrequest);
+		
+		String sno=mftrequest.getParameter("sno");
+		
+		strafficService = new NoticeEditService(sqlSession);
+		strafficService.execute(model);
+		
+		return "redirect:noticecontent?sno="+sno;
 	}
 }

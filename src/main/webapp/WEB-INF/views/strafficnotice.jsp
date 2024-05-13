@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" href="resources/css/straffic.css" />
+<link rel="stylesheet" href="resources/css/board.css" />
 <%@ include file="header.jsp" %>
 <body>
 <div class="wrap_all">
@@ -33,8 +34,8 @@
 			</div>
 			
 			<div class="board_searchbox">
-				<form action="">
-					<input type="text" value="검색"/>
+				<form action="strafficnotice">
+					<input type="text" name="sk" value="${searchKeyword }"/>
 					<input type="submit" value="검색" />			
 				</form>
 			</div>
@@ -51,7 +52,7 @@
 				    <c:forEach items="${list }" var="dto">
 			        	<tr>
 			                <td>${dto.sno}</td>
-			                <td><a href="">${dto.stitle}</a></td>		          
+			                <td><a href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></td>		          
 			                <td><fmt:formatDate value="${dto.sdate}" pattern="yy/MM/dd" /></td>
 			            	<td>${dto.shit}</td>
 			        	</tr>
@@ -60,6 +61,34 @@
 		  	</table>
 			
 			<a href="noticewriteview" style="color: white; background-color: #1034a6; text-decoration: none; font-weight: bold; font-size: 20px;">글쓰기</a>
+			
+			<div class="cs_list_wrap_pagenum">
+				<a class="cs_list_writebtn_a" href="strafficnotice?page=1&sk=${searchKeyword}">
+						 << 처음으로</a>
+				<a class="cs_list_writebtn_a" href="strafficnotice?page=${searchVo.page-1 }&sk=${searchKeyword}">
+						&nbsp;이전</a>
+
+		
+				<c:forEach begin="${searchVo.pageStart }" end="${searchVo.pageEnd }" var="i">
+					<c:choose>
+					
+						<c:when test="${i eq searchVo.page }">
+							<span style="color: #1034a6; font-weight: bold;">&nbsp;${i }&nbsp;</span>
+						</c:when>
+						
+						<c:otherwise>
+							<a class="cs_list_writebtn_a" href="strafficnotice?page=${i }&sk=${searchKeyword}">${i }</a> &nbsp;
+						</c:otherwise>
+					
+					</c:choose>
+				</c:forEach>
+		
+					<a class="cs_list_writebtn_a" href="strafficnotice?page=${searchVo.page+1 }&sk=${searchKeyword}">
+							다음&nbsp;</a>
+					
+					<a class="cs_list_writebtn_a" href="strafficnotice?page=${searchVo.totPage }&sk=${searchKeyword}">
+							끝으로 >></a>
+			</div>
 		</div>
 	
 	</div>
