@@ -26,7 +26,7 @@
 		</button>
 		<button type="button" class="sidebarbtn" >
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
-			<p style="margin: 0">지역별<br>사용량</p>
+			<p style="margin: 0">가입자<br>추이</p>
 		</button>
 	</div>
 	
