@@ -1,18 +1,14 @@
 package com.tech.straffic.dto;
 
-import java.util.Date;
-
 public class BUsageDto {
 
-	private Date sdate;
+	private String sdate;
 	private int susage;
 	
-	
-	
-	public Date getSdate() {
+	public String getSdate() {
 		return sdate;
 	}
-	public void setSdate(Date sdate) {
+	public void setSdate(String sdate) {
 		this.sdate = sdate;
 	}
 	public int getSusage() {
@@ -21,6 +17,4 @@ public class BUsageDto {
 	public void setSusage(int susage) {
 		this.susage = susage;
 	}
-	
-	
 }

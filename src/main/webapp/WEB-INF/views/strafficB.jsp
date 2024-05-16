@@ -10,6 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&autoload=false"></script>
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="resources/css/straffic.css" />
 </head>
 
@@ -45,15 +46,63 @@
 	
 	<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 </div>
+
+<canvas id="yearchart" width="300" height="100"></canvas>
 </body>
 <script>
+/* function busage() {
+	let yearCt = document.getElementById('yearchart');
+	
+     $.ajax({
+        type: "post",
+        async: true,
+        url: "busage",
+        success: function(data) {
+            console.log(data);
+        }
+    });
+} 
+// 페이지가 로드되면 busage 함수 실행
+$(document).ready(function() {
+    busage();
+}); */
 function busage() {
+    let yearCt = document.getElementById('yearchart');
+
+    if (!yearCt) {
+        console.error("요소를 찾을 수 없습니다.");
+        return;
+    }
+
     $.ajax({
         type: "post",
         async: true,
         url: "busage",
         success: function(data) {
             console.log(data);
+            
+            // 데이터 변환
+            const labels = data.map(entry => entry.sdate);
+            const dataset = {
+                label: 'Dataset',
+                data: data.map(entry => entry.susage),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // 차트 색상 설정
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            };
+            
+            // 차트 생성
+            let myChart = new Chart(yearCt, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [dataset]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true // 차트 크기 유지 설정
+                }
+            });
         }
     });
 }

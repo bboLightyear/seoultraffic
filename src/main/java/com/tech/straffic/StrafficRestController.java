@@ -24,6 +24,10 @@ public class StrafficRestController {
 	
 	private SqlSession sqlSession;
 	
+	public StrafficRestController(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
+	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST,value = "/bstorageinfo")
 	public ArrayList<BStorageInfoDto> bstorageinfo(HttpServletRequest request) throws ClassNotFoundException {
