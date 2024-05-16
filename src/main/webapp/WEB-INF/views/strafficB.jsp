@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <title>Seoul Traffic</title>
 <%@ include file="header.jsp" %>
-</head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&autoload=false"></script>
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
 <link rel="stylesheet" href="resources/css/straffic.css" />
+</head>
 
 <body>
 <div style="">
@@ -20,7 +20,7 @@
 			<img width="40px;" height="40px;" alt="location_img" src="resources/img/location.png">
 			<p style="margin: 0">저장소<br>위치</p>
 		</button>
-		<button type="button" class="sidebarbtn" >
+		<button type="button" class="sidebarbtn" onclick="busage()">
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
 			<p style="margin: 0">월별<br>사용량</p>
 		</button>
@@ -46,4 +46,16 @@
 	<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 </div>
 </body>
+<script>
+function busage() {
+    $.ajax({
+        type: "post",
+        async: true,
+        url: "busage",
+        success: function(data) {
+            console.log(data);
+        }
+    });
+}
+</script>
 </html>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tech.straffic.dao.StrafficDao;
 import com.tech.straffic.dto.BStorageInfoDto;
+import com.tech.straffic.dto.BUsageDto;
 
 @RestController
 public class StrafficRestController {
+	
+	private SqlSession sqlSession;
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.POST,value = "/bstorageinfo")
@@ -28,7 +33,6 @@ public class StrafficRestController {
         ArrayList<BStorageInfoDto> storageList = new ArrayList<>();
 		
 		try{
-
 			String apiURL = "http://openapi.seoul.go.kr:8088/"+key+"/json/bikeList/1/1000/";
 			URL url = new URL(apiURL);
 			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
@@ -66,5 +70,18 @@ public class StrafficRestController {
         
         return storageList;
 	}
-
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST,value = "/busage")
+	public ArrayList<BUsageDto> busage(HttpServletRequest request) throws ClassNotFoundException {
+		System.out.println("busage rest con()");
+		
+		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+		
+		ArrayList<BUsageDto> list = dao.busageyear();
+		
+		System.out.println(list.size());
+		
+		return list;
+	}
 }

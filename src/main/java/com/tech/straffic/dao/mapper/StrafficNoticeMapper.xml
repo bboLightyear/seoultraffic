@@ -48,4 +48,17 @@
       	SELECT COUNT(*)
       	FROM STRAFFICNOTICE
    	</select>
+	
+	<select id="busageyear" resultType="com.tech.straffic.dto.BUsageDto">
+		SELECT
+			  EXTRACT(YEAR FROM sdate) AS "sdate",
+			  AVG(susage) AS "susage"
+		FROM
+			  STRAFFICBUSAGE
+		GROUP BY
+		  	EXTRACT(YEAR FROM sdate)
+		ORDER BY
+		  	EXTRACT(YEAR FROM sdate)
+   	</select>   	
+   	
 </mapper>

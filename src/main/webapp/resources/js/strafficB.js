@@ -96,3 +96,4 @@ function makeOutListener(infowindow) {
         infowindow.close();
     };
 }
+
