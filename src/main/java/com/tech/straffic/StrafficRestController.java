@@ -126,6 +126,8 @@ public class StrafficRestController {
 			String jsonaccinfo = xmlJSONObj.toString(4);
 	        System.out.println(jsonaccinfo);
         	
+	        
+	        
         	
         }catch (Exception e) {
 			e.printStackTrace();
