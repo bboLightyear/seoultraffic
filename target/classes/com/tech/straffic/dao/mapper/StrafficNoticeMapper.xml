@@ -60,5 +60,17 @@
 		ORDER BY
 		  	EXTRACT(YEAR FROM sdate)
    	</select>   	
+
+	<select id="bsubrate" resultType="com.tech.straffic.dto.BSubRateDto">
+		SELECT
+		  	EXTRACT(YEAR FROM joindate) AS "joindate",
+		  	SUM(subscribers) AS "subscribers"
+		FROM
+		  	SUBRATE
+		GROUP BY
+		  	EXTRACT(YEAR FROM joindate)
+		ORDER BY
+		  	EXTRACT(YEAR FROM joindate)
+   	</select>   	
    	
 </mapper>

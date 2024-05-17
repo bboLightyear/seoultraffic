@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tech.straffic.dao.StrafficDao;
 import com.tech.straffic.dto.BStorageInfoDto;
+import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
 
 @RestController
@@ -83,6 +84,20 @@ public class StrafficRestController {
 		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
 		
 		ArrayList<BUsageDto> list = dao.busageyear();
+		
+		System.out.println(list.size());
+		
+		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST,value = "/bsubrate")
+	public ArrayList<BSubRateDto> bsubrate(HttpServletRequest request) throws ClassNotFoundException {
+		System.out.println("bsubrate rest con()");
+		
+		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+		
+		ArrayList<BSubRateDto> list = dao.bsubrate();
 		
 		System.out.println(list.size());
 		

@@ -25,7 +25,7 @@
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
 			<p style="margin: 0">월별<br>사용량</p>
 		</button>
-		<button type="button" class="sidebarbtn" >
+		<button type="button" class="sidebarbtn" onclick="bsubrate()">
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
 			<p style="margin: 0">가입자<br>추이</p>
 		</button>
@@ -48,24 +48,9 @@
 </div>
 
 <canvas id="yearchart" width="300" height="100"></canvas>
+<canvas id="subchart" width="300" height="100"></canvas>
 </body>
 <script>
-/* function busage() {
-	let yearCt = document.getElementById('yearchart');
-	
-     $.ajax({
-        type: "post",
-        async: true,
-        url: "busage",
-        success: function(data) {
-            console.log(data);
-        }
-    });
-} 
-// 페이지가 로드되면 busage 함수 실행
-$(document).ready(function() {
-    busage();
-}); */
 function busage() {
     let yearCt = document.getElementById('yearchart');
 
@@ -103,6 +88,49 @@ function busage() {
                     maintainAspectRatio: true // 차트 크기 유지 설정
                 }
             });
+        }
+    });
+}
+
+function bsubrate() {
+    let subCt = document.getElementById('subchart');
+
+    if (!subCt) {
+        console.error("요소를 찾을 수 없습니다.");
+        return;
+    }
+
+    $.ajax({
+        type: "post",
+        async: true,
+        url: "bsubrate",
+        success: function(data) {
+            console.log(data);
+            
+         // 데이터 변환
+            const labels = data.map(entry => entry.joindate);
+            const dataset = {
+                label: 'Dataset',
+                data: data.map(entry => entry.subscribers),
+                backgroundColor: 'rgba(255, 99, 132, 0.2)', // 차트 색상 설정
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            };
+            
+            // 차트 생성
+            let myChart = new Chart(subCt, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [dataset]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true // 차트 크기 유지 설정
+                }
+            });
+            
+            
         }
     });
 }

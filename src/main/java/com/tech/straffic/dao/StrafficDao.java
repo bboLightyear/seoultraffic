@@ -2,6 +2,7 @@ package com.tech.straffic.dao;
 
 import java.util.ArrayList;
 
+import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
 import com.tech.straffic.dto.StrafficNoticeDto;
 
@@ -22,5 +23,7 @@ public interface StrafficDao {
 	int selNoticeTotCount();
 
 	ArrayList<BUsageDto> busageyear();
+
+	ArrayList<BSubRateDto> bsubrate();
 
 }
