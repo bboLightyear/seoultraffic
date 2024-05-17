@@ -10,7 +10,7 @@
 </head>
 <link rel="stylesheet" href="resources/css/straffic.css" />
 <%@ include file="header.jsp" %>
-<body>
+<body style="margin: 0">
 <div class="wrap_all">
 	<div class="wrap_board">
 	
@@ -56,4 +56,5 @@
 </div>
 
 </body>
+<%@ include file="footer.jsp" %>
 </html>

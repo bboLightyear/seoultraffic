@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="resources/css/straffic.css" />
 <link rel="stylesheet" href="resources/css/board.css" />
 <%@ include file="header.jsp" %>
-<body>
+<body style="margin: 0">
 <div class="cs_write_wrap_all">
 		<div class="cs_write_wrap_form">
 		
@@ -90,4 +90,5 @@
 		</div>
 </div><!--cs_write_wrap_all-->
 </body>
+<%@ include file="footer.jsp" %>
 </html>

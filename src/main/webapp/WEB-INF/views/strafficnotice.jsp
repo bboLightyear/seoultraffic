@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="resources/css/straffic.css" />
 <link rel="stylesheet" href="resources/css/board.css" />
 <%@ include file="header.jsp" %>
-<body>
+<body style="margin: 0">
 <div class="wrap_all">
 	<div class="wrap_board">
 	
@@ -95,4 +95,5 @@
 </div>
 
 </body>
+<%@ include file="footer.jsp" %>
 </html>

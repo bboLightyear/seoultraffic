@@ -11,7 +11,7 @@
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
 <link rel="stylesheet" href="resources/css/straffic.css" />
 <%@ include file="header.jsp" %>
-<body>
+<body style="margin: 0">
 	<div style="">
 		<div style="width: 80px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd;position: absolute; z-index: 3;">
 			<button type="button" class="sidebarbtn" onclick="accidentinfo()">
@@ -49,4 +49,5 @@
 	</div>
 
 </body>
+<%@ include file="footer.jsp" %>
 </html>

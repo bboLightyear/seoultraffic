@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="resources/css/straffic.css" />
 </head>
 
-<body>
+<body style="margin: 0">
 <div style="">
 	<div style="width: 80px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd;position: absolute; z-index: 3;">
 		<button type="button" class="sidebarbtn" onclick="bstorageinfo()">
@@ -47,8 +47,27 @@
 	<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 </div>
 
-<canvas id="yearchart" width="300" height="100"></canvas>
-<canvas id="subchart" width="300" height="100"></canvas>
+<div>
+	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 2px solid #1034a6;">
+		<h3 style="margin: 0; margin-left: 50px;">연도별 이용자 추이</h3>
+	</div>
+	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
+		<div style="width: 800px;">
+			<canvas id="yearchart" height="50"></canvas>
+		</div>
+	</div>
+</div>
+
+<div>
+	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 2px solid #1034a6;">
+		<h3 style="margin: 0; margin-left: 50px;">연도별 가입자 추이</h3>
+	</div>
+	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
+		<div style="width: 800px;">
+			<canvas id="subchart" width="300" height="100"></canvas>
+		</div>
+	</div>
+</div>
 </body>
 <script>
 function busage() {
@@ -69,11 +88,11 @@ function busage() {
             // 데이터 변환
             const labels = data.map(entry => entry.sdate);
             const dataset = {
-                label: 'Dataset',
+                label: '이용자 수',
                 data: data.map(entry => entry.susage),
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 차트 색상 설정
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+                borderColor: 'rgba(16, 52, 166, 1)',
+                borderWidth: 2
             };
             
             // 차트 생성
@@ -110,11 +129,11 @@ function bsubrate() {
          // 데이터 변환
             const labels = data.map(entry => entry.joindate);
             const dataset = {
-                label: 'Dataset',
+                label: '가입자 수',
                 data: data.map(entry => entry.subscribers),
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 차트 색상 설정
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
+                borderColor: 'rgba(16, 52, 166, 1)',
+                borderWidth: 2
             };
             
             // 차트 생성
@@ -135,4 +154,5 @@ function bsubrate() {
     });
 }
 </script>
+<%@ include file="footer.jsp" %>
 </html>
