@@ -1,3 +1,5 @@
 
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 target/m2e-wtp/web-resources/META-INF/maven/com.tech/straffic/pom.properties
+target/classes/com/tech/straffic/dao/StrafficDao.class
+target/classes/com/tech/straffic/StrafficRestController.class
