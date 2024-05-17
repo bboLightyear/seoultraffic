@@ -23,7 +23,7 @@
 		</button>
 		<button type="button" class="sidebarbtn" onclick="busage()">
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
-			<p style="margin: 0">월별<br>사용량</p>
+			<p style="margin: 0">연도별<br>사용량</p>
 		</button>
 		<button type="button" class="sidebarbtn" onclick="bsubrate()">
 			<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
@@ -52,19 +52,19 @@
 		<h3 style="margin: 0; margin-left: 50px;">연도별 이용자 추이</h3>
 	</div>
 	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
-		<div style="width: 800px;">
-			<canvas id="yearchart" height="50"></canvas>
+		<div style="width: 800px; display: none;" id="yearct">
+			<canvas id="yearchart" height="100"></canvas>
 		</div>
 	</div>
 </div>
 
 <div>
 	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 2px solid #1034a6;">
-		<h3 style="margin: 0; margin-left: 50px;">연도별 가입자 추이</h3>
+		<h3 style="margin: 0; margin-left: 50px; mar">연도별 가입자 추이</h3>
 	</div>
 	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
 		<div style="width: 800px;">
-			<canvas id="subchart" width="300" height="100"></canvas>
+			<canvas id="subchart" height="100"></canvas>
 		</div>
 	</div>
 </div>
@@ -72,7 +72,8 @@
 <script>
 function busage() {
     let yearCt = document.getElementById('yearchart');
-
+    let yearCtDiv = document.getElementById('yearct');
+    
     if (!yearCt) {
         console.error("요소를 찾을 수 없습니다.");
         return;
@@ -84,6 +85,8 @@ function busage() {
         url: "busage",
         success: function(data) {
             console.log(data);
+            
+            yearCtDiv.style.display='block';
             
             // 데이터 변환
             const labels = data.map(entry => entry.sdate);
