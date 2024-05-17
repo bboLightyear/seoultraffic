@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
 <html>
@@ -49,5 +48,19 @@
 	</div>
 
 </body>
+<script>
+	//돌발정보 
+	function accidentinfo() {
+	  $.ajax({
+	      type: "post",
+	      async: true,
+	      url: "accidentinfo",
+	      success: function(data) {
+	          console.log("success");
+	          console.log(data);
+	      }
+	  });
+	}
+</script>
 <%@ include file="footer.jsp" %>
 </html>

@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tech.straffic.dao.StrafficDao;
+import com.tech.straffic.dto.AccidentInfoDto;
 import com.tech.straffic.dto.BStorageInfoDto;
 import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
@@ -103,4 +105,34 @@ public class StrafficRestController {
 		
 		return list;
 	}
+	
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.POST,value = "/accidentinfo")
+	public ArrayList<AccidentInfoDto> accidentinfo(HttpServletRequest request) throws ClassNotFoundException {
+		System.out.println("accidentinfo rest con()");
+        
+        String key = "55756f727977687138317466627a7a";    
+        ArrayList<AccidentInfoDto> accidentList = new ArrayList<>();
+        
+        try {
+			String apiURL = "http://openapi.seoul.go.kr:8088/"+key+"/xml/AccInfo/1/1000/";
+			
+			URL url = new URL(apiURL);
+			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+			String result = bf.readLine();
+			bf.close();
+			
+			JSONObject xmlJSONObj = XML.toJSONObject(result.toString());
+			String jsonaccinfo = xmlJSONObj.toString(4);
+	        System.out.println(jsonaccinfo);
+        	
+        	
+        }catch (Exception e) {
+			e.printStackTrace();
+		}
+        
+		
+        return accidentList;
+	}
+	
 }
