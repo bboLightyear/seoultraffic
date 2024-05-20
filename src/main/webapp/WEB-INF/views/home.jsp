@@ -46,6 +46,21 @@
 		
 		<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 	</div>
+	
+	<div>
+		<div>
+			<h3>사고 및 통제 정보</h3>
+		</div>
+		
+		<div>
+			<ul>
+				<li>전체</li>
+				<li>사고/고장</li>
+				<li>공사/집회</li>
+				<li>기상/화재</li>
+			</ul>
+		</div>
+	</div>
 
 </body>
 <%@ include file="footer.jsp" %>
