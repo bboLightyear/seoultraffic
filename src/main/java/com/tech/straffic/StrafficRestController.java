@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.tech.straffic.dao.StrafficDao;
 import com.tech.straffic.dto.AccidentInfoDto;
 import com.tech.straffic.dto.BStorageInfoDto;
@@ -125,10 +126,34 @@ public class StrafficRestController {
 			JSONObject xmlJSONObj = XML.toJSONObject(result.toString());
 			String jsonaccinfo = xmlJSONObj.toString(4);
 	        System.out.println(jsonaccinfo);
-        	
 	        
-	        
+	        JSONObject obj = new JSONObject(jsonaccinfo);
+        	JSONObject AccInfo = obj.getJSONObject("AccInfo");
+        	JSONArray rows = AccInfo.getJSONArray("row");
         	
+        	int list_total_count = AccInfo.getInt("list_total_count");
+        	System.out.println("결과 :"+ list_total_count);
+	        
+        	for (int i = 0; i < rows.length(); i++) {
+        		JSONObject row = rows.getJSONObject(i);
+        		AccidentInfoDto dto = new AccidentInfoDto();
+        		
+        		dto.setOCCR_DATE(row.getInt("occr_date"));
+        		dto.setACC_TYPE(row.getString("acc_type"));
+        		dto.setGRS80TM_X(row.getFloat("grs80tm_x"));
+        		dto.setGRS80TM_Y(row.getFloat("grs80tm_y"));
+        		dto.setEXP_CLR_TIME(row.getInt("exp_clr_time"));
+        		dto.setACC_INFO(row.getString("acc_info"));
+        		dto.setOCCR_TIME(row.getInt("occr_time"));
+        		dto.setACC_ID(row.getInt("acc_id"));
+        		dto.setEXP_CLR_DATE(row.getInt("exp_clr_date"));
+        		dto.setLINK_ID(row.getInt("link_id"));
+        		dto.setACC_DTYPE(row.getString("acc_dtype"));
+        		dto.setAcc_road_code(row.getString("acc_road_code"));
+        		
+        		accidentList.add(dto);
+			}
+	        
         }catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,109 +1,116 @@
 package com.tech.straffic.dto;
 
 public class AccidentInfoDto {
-	private int ACC_ID;
-	private int OCCR_DATE;
-	private int OCCR_TIME;
-	private int EXP_CLR_DATE;
-	private int EXP_CLR_TIME;
-	private String ACC_TYPE;
-	private String ACC_DTYPE;
-	private int LINK_ID;
-	private String GRS80TM_X;
-	private String GRS80TM_Y;
-	private String ACC_INFO;
+	private int acc_id;
+	private int occr_date;
+	private int occr_time;
+	private int exp_clr_date;
+	private int exp_clr_time;
+	private String acc_type;
+	private String acc_dtype;
+	private int link_id;
+	private Float grs80tm_x;
+	private Float grs80tm_y;
+	private String acc_info;
+	private String acc_road_code;
 	
 	public AccidentInfoDto() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public int getACC_ID() {
-		return ACC_ID;
+		return acc_id;
 	}
 
 	public void setACC_ID(int aCC_ID) {
-		ACC_ID = aCC_ID;
+		acc_id = aCC_ID;
 	}
 
 	public int getOCCR_DATE() {
-		return OCCR_DATE;
+		return occr_date;
 	}
 
 	public void setOCCR_DATE(int oCCR_DATE) {
-		OCCR_DATE = oCCR_DATE;
+		occr_date = oCCR_DATE;
 	}
 
 	public int getOCCR_TIME() {
-		return OCCR_TIME;
+		return occr_time;
 	}
 
 	public void setOCCR_TIME(int oCCR_TIME) {
-		OCCR_TIME = oCCR_TIME;
+		occr_time = oCCR_TIME;
 	}
 
 	public int getEXP_CLR_DATE() {
-		return EXP_CLR_DATE;
+		return exp_clr_date;
 	}
 
 	public void setEXP_CLR_DATE(int eXP_CLR_DATE) {
-		EXP_CLR_DATE = eXP_CLR_DATE;
+		exp_clr_date = eXP_CLR_DATE;
 	}
 
 	public int getEXP_CLR_TIME() {
-		return EXP_CLR_TIME;
+		return exp_clr_time;
 	}
 
 	public void setEXP_CLR_TIME(int eXP_CLR_TIME) {
-		EXP_CLR_TIME = eXP_CLR_TIME;
+		exp_clr_time = eXP_CLR_TIME;
 	}
 
 	public String getACC_TYPE() {
-		return ACC_TYPE;
+		return acc_type;
 	}
 
 	public void setACC_TYPE(String aCC_TYPE) {
-		ACC_TYPE = aCC_TYPE;
+		acc_type = aCC_TYPE;
 	}
 
 	public String getACC_DTYPE() {
-		return ACC_DTYPE;
+		return acc_dtype;
 	}
 
 	public void setACC_DTYPE(String aCC_DTYPE) {
-		ACC_DTYPE = aCC_DTYPE;
+		acc_dtype = aCC_DTYPE;
 	}
 
 	public int getLINK_ID() {
-		return LINK_ID;
+		return link_id;
 	}
 
 	public void setLINK_ID(int lINK_ID) {
-		LINK_ID = lINK_ID;
+		link_id = lINK_ID;
 	}
 
-	public String getGRS80TM_X() {
-		return GRS80TM_X;
+	public Float getGRS80TM_X() {
+		return grs80tm_x;
 	}
 
-	public void setGRS80TM_X(String gRS80TM_X) {
-		GRS80TM_X = gRS80TM_X;
+	public void setGRS80TM_X(Float gRS80TM_X) {
+		grs80tm_x = gRS80TM_X;
 	}
 
-	public String getGRS80TM_Y() {
-		return GRS80TM_Y;
+	public Float getGRS80TM_Y() {
+		return grs80tm_y;
 	}
 
-	public void setGRS80TM_Y(String gRS80TM_Y) {
-		GRS80TM_Y = gRS80TM_Y;
+	public void setGRS80TM_Y(Float gRS80TM_Y) {
+		grs80tm_y = gRS80TM_Y;
 	}
 
 	public String getACC_INFO() {
-		return ACC_INFO;
+		return acc_info;
 	}
 
 	public void setACC_INFO(String aCC_INFO) {
-		ACC_INFO = aCC_INFO;
+		acc_info = aCC_INFO;
 	}
-	
-	
+
+	public String getAcc_road_code() {
+		return acc_road_code;
+	}
+
+	public void setAcc_road_code(String acc_road_code) {
+		this.acc_road_code = acc_road_code;
+	}	
 }

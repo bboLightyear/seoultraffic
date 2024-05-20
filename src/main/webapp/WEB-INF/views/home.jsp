@@ -3,12 +3,12 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Seoul Traffic</title>
-</head>
+<title>Seoul Traffic</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&autoload=false"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&libraries=services&autoload=false"></script>
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
 <link rel="stylesheet" href="resources/css/straffic.css" />
+</head>
 <%@ include file="header.jsp" %>
 <body style="margin: 0">
 	<div style="">
@@ -48,19 +48,5 @@
 	</div>
 
 </body>
-<script>
-	//돌발정보 
-	function accidentinfo() {
-	  $.ajax({
-	      type: "post",
-	      async: true,
-	      url: "accidentinfo",
-	      success: function(data) {
-	          console.log("success");
-	          console.log(data);
-	      }
-	  });
-	}
-</script>
 <%@ include file="footer.jsp" %>
 </html>
