@@ -129,30 +129,51 @@ public class StrafficRestController {
 	        
 	        JSONObject obj = new JSONObject(jsonaccinfo);
         	JSONObject AccInfo = obj.getJSONObject("AccInfo");
-        	JSONArray rows = AccInfo.getJSONArray("row");
         	
         	int list_total_count = AccInfo.getInt("list_total_count");
         	System.out.println("결과 :"+ list_total_count);
 	        
-        	for (int i = 0; i < rows.length(); i++) {
-        		JSONObject row = rows.getJSONObject(i);
-        		AccidentInfoDto dto = new AccidentInfoDto();
-        		
-        		dto.setOCCR_DATE(row.getInt("occr_date"));
-        		dto.setACC_TYPE(row.getString("acc_type"));
-        		dto.setGRS80TM_X(row.getFloat("grs80tm_x"));
-        		dto.setGRS80TM_Y(row.getFloat("grs80tm_y"));
-        		dto.setEXP_CLR_TIME(row.getInt("exp_clr_time"));
-        		dto.setACC_INFO(row.getString("acc_info"));
-        		dto.setOCCR_TIME(row.getInt("occr_time"));
-        		dto.setACC_ID(row.getInt("acc_id"));
-        		dto.setEXP_CLR_DATE(row.getInt("exp_clr_date"));
-        		dto.setLINK_ID(row.getInt("link_id"));
-        		dto.setACC_DTYPE(row.getString("acc_dtype"));
-        		dto.setAcc_road_code(row.getString("acc_road_code"));
-        		
-        		accidentList.add(dto);
-			}
+        	JSONArray rows = AccInfo.optJSONArray("row");
+
+        	if (rows != null) {
+                for (int i = 0; i < rows.length(); i++) {
+                    JSONObject row = rows.getJSONObject(i);
+                    AccidentInfoDto dto = new AccidentInfoDto();
+                    
+                    dto.setOCCR_DATE(row.getInt("occr_date"));
+                    dto.setACC_TYPE(row.getString("acc_type"));
+                    dto.setGRS80TM_X(row.getFloat("grs80tm_x"));
+                    dto.setGRS80TM_Y(row.getFloat("grs80tm_y"));
+                    dto.setEXP_CLR_TIME(row.getInt("exp_clr_time"));
+                    dto.setACC_INFO(row.getString("acc_info"));
+                    dto.setOCCR_TIME(row.getInt("occr_time"));
+                    dto.setACC_ID(row.getInt("acc_id"));
+                    dto.setEXP_CLR_DATE(row.getInt("exp_clr_date"));
+                    dto.setLINK_ID(row.getInt("link_id"));
+                    dto.setACC_DTYPE(row.getString("acc_dtype"));
+                    dto.setAcc_road_code(row.getString("acc_road_code"));
+                    
+                    accidentList.add(dto);
+                }
+            } else {
+                JSONObject row = AccInfo.getJSONObject("row");
+                AccidentInfoDto dto = new AccidentInfoDto();
+                
+                dto.setOCCR_DATE(row.getInt("occr_date"));
+                dto.setACC_TYPE(row.getString("acc_type"));
+                dto.setGRS80TM_X(row.getFloat("grs80tm_x"));
+                dto.setGRS80TM_Y(row.getFloat("grs80tm_y"));
+                dto.setEXP_CLR_TIME(row.getInt("exp_clr_time"));
+                dto.setACC_INFO(row.getString("acc_info"));
+                dto.setOCCR_TIME(row.getInt("occr_time"));
+                dto.setACC_ID(row.getInt("acc_id"));
+                dto.setEXP_CLR_DATE(row.getInt("exp_clr_date"));
+                dto.setLINK_ID(row.getInt("link_id"));
+                dto.setACC_DTYPE(row.getString("acc_dtype"));
+                dto.setAcc_road_code(row.getString("acc_road_code"));
+                
+                accidentList.add(dto);
+            }
 	        
         }catch (Exception e) {
 			e.printStackTrace();
@@ -161,5 +182,33 @@ public class StrafficRestController {
 		
         return accidentList;
 	}
+//	@ResponseBody
+//	@RequestMapping(method = RequestMethod.POST,value = "/acciinfo")
+//	public JSONObject acciinfo(HttpServletRequest request) throws ClassNotFoundException {
+//		System.out.println("acciinfo rest con()");
+//		
+//		String key = "55756f727977687138317466627a7a";    
+//		ArrayList<AccidentInfoDto> accidentList = new ArrayList<>();
+//		
+//		JSONObject xmlJSONObj=null;
+//		
+//		try {
+//			String apiURL = "http://openapi.seoul.go.kr:8088/"+key+"/xml/AccInfo/1/1000/";
+//			
+//			URL url = new URL(apiURL);
+//			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+//			String result = bf.readLine();
+//			bf.close();
+//			
+//			xmlJSONObj = XML.toJSONObject(result);
+//			System.out.println(xmlJSONObj);
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		return xmlJSONObj;
+//	}
 	
 }

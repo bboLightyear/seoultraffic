@@ -117,7 +117,7 @@ $(document).ready(function() {
         });
     }
  
-    function displayAccidentInfo(data) {
+     function displayAccidentInfo(data) {
         let listItems = 
         	data.map(item => `
             	<li data-type="${item.acc_TYPE}">
@@ -128,8 +128,9 @@ $(document).ready(function() {
             	</li>
         	`); 
         $("#accinfodiv ul").html(listItems.join(''));
-    }
-
+    } 
+    
+     
     function filterAccidentInfo(data, filter) {
         let filteredData = [];
         if (filter === 'allaccident') {
