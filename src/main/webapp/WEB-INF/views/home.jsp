@@ -13,19 +13,24 @@
 <body style="margin: 0">
 	<div style="">
 		<div style="width: 80px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd;position: absolute; z-index: 3;">
-			<button type="button" class="sidebarbtn" onclick="accidentinfo()">
-				<img width="40px;" height="40px;" alt="location_img" src="resources/img/location.png">
-				<p style="margin: 0">돌발<br>정보</p>
-			</button>
-			<button type="button" class="sidebarbtn" >
-				<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
-				<p style="margin: 0">통제<br>정보</p>
-			</button>
-			<button type="button" class="sidebarbtn" >
-				<img width="40px;" height="40px;" alt="analytics_img" src="resources/img/analytics.png">
-				<p style="margin: 0">따릉이<br>정보</p>
-			</button>
-		</div>
+	 		<input type="radio" id="accidentinfo" name="info" class="radiobtn" onclick="accidentinfo()" style="display: none;">
+	        <label for="accidentinfo" class="sidebarbtn">
+	            <img alt="location_img" src="resources/img/location.png" style="width: 40px; height: 40px;">
+	            <p style="margin: 0">돌발<br>정보</p>
+	        </label>
+	
+	        <input type="radio" id="controlinfo" name="info" class="radiobtn" onclick="handleRadioClick(this)" style="display: none;">
+	        <label for="controlinfo" class="sidebarbtn">
+	            <img alt="control_img" src="resources/img/analytics.png" style="width: 40px; height: 40px;">
+	            <p style="margin: 0">통제<br>정보</p>
+	        </label>
+	
+	        <input type="radio" id="bikeinfo" name="info" class="radiobtn" onclick="handleRadioClick(this)" style="display: none;">
+	        <label for="bikeinfo" class="sidebarbtn">
+	            <img alt="bike_img" src="resources/img/analytics.png" style="width: 40px; height: 40px;">
+	            <p style="margin: 0">따릉이<br>정보</p>
+	        </label>
+		</div> 
 		
 		<div style="width: 260px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
 			<div style="width: 260px; height: 159px; border-bottom: 1px solid #ddd;">
@@ -52,16 +57,97 @@
 			<h3>사고 및 통제 정보</h3>
 		</div>
 		
-		<div>
+		<div class="hometabhead">
 			<ul>
-				<li>전체</li>
-				<li>사고/고장</li>
-				<li>공사/집회</li>
-				<li>기상/화재</li>
+				<li>
+					<input type="radio" id="allaccident" name="accinfo" checked="checked"/>
+					<label for="allaccident" class="accinfolabel">
+						<h4 style="margin: 0">전체</h4>
+					</label>
+				</li>
+				<li>
+					<input type="radio" id="accident" name="accinfo"/>
+					<label for="accident" class="accinfolabel">
+						<h4 style="margin: 0">사고/고장</h4>
+					</label>
+				</li>
+				<li>
+					<input type="radio" id="construction" name="accinfo"/>
+					<label for="construction" class="accinfolabel">
+						<h4 style="margin: 0">공사/집회</h4>
+					</label>
+				</li>
+				<li>
+					<input type="radio" id="weather" name="accinfo"/>
+					<label for="weather" class="accinfolabel">
+						<h4 style="margin: 0">기상/화재</h4>
+					</label>
+				</li>
 			</ul>
+		</div>
+		
+		<div id="accinfodiv">
+			<ul></ul>
 		</div>
 	</div>
 
 </body>
+
+<script>
+
+$(document).ready(function() {
+    function accinfo() {
+        $.ajax({
+            type: "post",
+            async: true,
+            url: "accidentinfo",
+            success: function(data) {
+                console.log("사고 정보 로드 성공");
+                console.log(data);
+                // Assuming data is received correctly
+                displayAccidentInfo(data);
+
+                $('input[name="accinfo"]').on('change', function() {
+                    filterAccidentInfo(data, $(this).attr('id'));
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Error loading accident info:", status, error);
+            }
+        });
+    }
+ 
+    function displayAccidentInfo(data) {
+        let listItems = 
+        	data.map(item => `
+            	<li data-type="${item.acc_TYPE}">
+                	<strong>사고 ID:</strong> ${item.acc_ID}<br>
+                	<strong>정보:</strong> ${item.acc_INFO}<br>
+                	<strong>예상 종료일:</strong> ${item.exp_CLR_DATA}<br>
+                	<strong>예상 종료 시간:</strong> ${item.exp_CLR_TIME}
+            	</li>
+        	`); 
+        $("#accinfodiv ul").html(listItems.join(''));
+    }
+
+    function filterAccidentInfo(data, filter) {
+        let filteredData = [];
+        if (filter === 'allaccident') {
+            filteredData = data;
+        } else if (filter === 'accident') {
+            filteredData = data.filter(item => item.acc_TYPE === "A01" || item.acc_TYPE === "A03");
+        } else if (filter === 'construction') {
+            filteredData = data.filter(item => item.acc_TYPE === "A04");
+        } else if (filter === 'weather') {
+            filteredData = data.filter(item => item.acc_TYPE === "A05");
+        }
+ 
+        displayAccidentInfo(filteredData);
+    }
+
+    accinfo();
+});
+</script>
+
 <%@ include file="footer.jsp" %>
 </html>
