@@ -22,6 +22,7 @@ import com.tech.straffic.dto.AccidentInfoDto;
 import com.tech.straffic.dto.BStorageInfoDto;
 import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
+import com.tech.straffic.dto.WeatherinfoDto;
 
 @RestController
 public class StrafficRestController {
@@ -182,33 +183,47 @@ public class StrafficRestController {
 		
         return accidentList;
 	}
-//	@ResponseBody
-//	@RequestMapping(method = RequestMethod.POST,value = "/acciinfo")
-//	public JSONObject acciinfo(HttpServletRequest request) throws ClassNotFoundException {
-//		System.out.println("acciinfo rest con()");
-//		
-//		String key = "55756f727977687138317466627a7a";    
-//		ArrayList<AccidentInfoDto> accidentList = new ArrayList<>();
-//		
-//		JSONObject xmlJSONObj=null;
-//		
-//		try {
-//			String apiURL = "http://openapi.seoul.go.kr:8088/"+key+"/xml/AccInfo/1/1000/";
-//			
-//			URL url = new URL(apiURL);
-//			BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
-//			String result = bf.readLine();
-//			bf.close();
-//			
-//			xmlJSONObj = XML.toJSONObject(result);
-//			System.out.println(xmlJSONObj);
-//			
-//		}catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		
-//		return xmlJSONObj;
-//	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/weatherinfo")
+	@ResponseBody
+	public ArrayList<WeatherinfoDto> weatherinfo(HttpServletRequest request) throws ClassNotFoundException {
+	    System.out.println("weatherinfo rest con()");
+
+	    String key = "6acc2fe42d6a07b0c29ae252f7183139";
+
+	    ArrayList<WeatherinfoDto> weatherinfo = new ArrayList<>();
+
+	    try {
+	        String apiURL = "http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=" + key + "&lang=kr&units=metric";
+
+	        URL url = new URL(apiURL);
+	        BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+	        String result = bf.readLine();
+	        bf.close();
+
+	        JSONObject obj = new JSONObject(result);
+
+	        // weather 배열 처리
+	        JSONArray weatherArray = obj.getJSONArray("weather");
+	        JSONObject weather = weatherArray.getJSONObject(0);
+
+	        JSONObject main = obj.getJSONObject("main");
+	        String name = obj.getString("name");
+
+	        WeatherinfoDto dto = new WeatherinfoDto();
+	        dto.setDescription(weather.getString("description"));
+	        dto.setTemp(main.getFloat("temp"));
+	        dto.setTemp_min(main.getFloat("temp_min"));
+	        dto.setTemp_max(main.getFloat("temp_max"));
+	        dto.setName(name);
+
+	        weatherinfo.add(dto);
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return weatherinfo;
+	}
 	
 }
