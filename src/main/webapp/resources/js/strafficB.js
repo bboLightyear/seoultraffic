@@ -168,8 +168,8 @@ function accidentinfo() {
                     if (status === kakao.maps.services.Status.OK) {
                         // 마커를 생성된 위치에 표시
                     	
-                    	var imageSrc = 'resources/img/siren.png', // 마커이미지의 주소입니다    
-                        imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
+                    	var imageSrc = 'resources/img/warn.png', // 마커이미지의 주소입니다    
+                        imageSize = new kakao.maps.Size(34, 30), // 마커이미지의 크기입니다
                         imageOption = {offset: new kakao.maps.Point(27, 69)};
                     	
                     	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
@@ -216,4 +216,3 @@ function makeOutListener(infowindow) {
         infowindow.close();
     };
 }
-

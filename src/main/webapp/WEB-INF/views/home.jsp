@@ -63,7 +63,7 @@
 					<input type="radio" id="allaccident" name="accinfo" checked="checked"/>
 					<label for="allaccident" class="accinfolabel">
 						<h4 style="margin: 0">전체</h4>
-					</label>
+					</label> 
 				</li>
 				<li>
 					<input type="radio" id="accident" name="accinfo"/>
@@ -75,7 +75,7 @@
 					<input type="radio" id="construction" name="accinfo"/>
 					<label for="construction" class="accinfolabel">
 						<h4 style="margin: 0">공사/집회</h4>
-					</label>
+					</label> 
 				</li>
 				<li>
 					<input type="radio" id="weather" name="accinfo"/>
@@ -92,85 +92,8 @@
 	</div>
 
 </body>
-
 <script>
-/* 
-$(document).ready(function() {
-    function accinfo() {
-        $.ajax({
-            type: "post",
-            async: true,
-            url: "accidentinfo",
-            success: function(data) {
-                console.log("사고 정보 로드 성공");
-                console.log(data);
-
-                displayAccidentInfo(data);
-
-                $('input[name="accinfo"]').on('change', function() {
-                    filterAccidentInfo(data, $(this).attr('id'));
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error("Error loading accident info:", status, error);
-            }
-        });
-    }	
-
-	function displayAccidentInfo(data) {
-	    var accinfodiv = document.getElementById("accinfodiv");
-	    var htmlText = "";
-
-	    // 데이터가 배열인지 확인
-	    if (Array.isArray(data)) {
-	        // 데이터가 배열일 경우
-	        for (var i = 0; i < data.length; i++) {
-	            var accidentData = data[i];
-	            htmlText += "<li data-type=" + accidentData.acc_TYPE + ">";
-	            htmlText += "<strong>사고 ID:</strong>" + accidentData.acc_ID + "<br>";
-	            htmlText += "<strong>정보:</strong>" + accidentData.acc_INFO + "<br>";
-	            htmlText += "<strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
-	            htmlText += "<strong>예상 종료 시간:</strong>" + accidentData.exp_CLR_TIME;
-	            htmlText += "</li>";
-	        }
-	    } else {
-	        // 데이터가 배열이 아닌 경우 (하나의 객체)
-	        var accidentData = data;
-	        htmlText += "<li data-type=" + accidentData.acc_TYPE + ">";
-	        htmlText += "<strong>사고 ID:</strong>" + accidentData.acc_ID + "<br>";
-	        htmlText += "<strong>정보:</strong>" + accidentData.acc_INFO + "<br>";
-	        htmlText += "<strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
-	        htmlText += "<strong>예상 종료 시간:</strong>" + accidentData.exp_CLR_TIME;
-	        htmlText += "</li>";
-	    }
-
-	    $(accinfodiv).append(htmlText);
-	}	
-	
-    
-    function filterAccidentInfo(data, filter) {
-        let filteredData = [];
-        if (filter === 'allaccident') {
-            filteredData = data;
-        } else if (filter === 'accident') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A01") || item.acc_TYPE.startsWith("A03"));
-        } else if (filter === 'construction') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A04"));
-        } else if (filter === 'weather') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A05"));
-        }
-
-        clearAccidentInfo(); // 리스트 초기화
-        displayAccidentInfo(filteredData);
-    } 
-    
-    function clearAccidentInfo() {
-        $("#accinfodiv ul").empty(); // 리스트 내용 비움
-    }
-
-    accinfo();
-}); */
-
+//사고정보 띄우는 메소드
 $(document).ready(function() {
     function accinfo() {
         $.ajax({
@@ -228,11 +151,11 @@ $(document).ready(function() {
         if (filter === 'allaccident') {
             filteredData = data;
         } else if (filter === 'accident') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A01") || item.acc_TYPE.startsWith("A03"));
+            filteredData = data.filter(item => item.acc_TYPE.startsWith("A01") || item.acc_TYPE.startsWith("A02") || item.acc_TYPE.startsWith("A03") || item.acc_TYPE.startsWith("A04") || item.acc_TYPE.startsWith("A06") || item.acc_TYPE.startsWith("A07"));
         } else if (filter === 'construction') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A04"));
+            filteredData = data.filter(item => item.acc_TYPE.startsWith("A04") || item.acc_TYPE.startsWith("A10"));
         } else if (filter === 'weather') {
-            filteredData = data.filter(item => item.acc_TYPE.startsWith("A05"));
+            filteredData = data.filter(item => item.acc_TYPE.startsWith("A05") || item.acc_TYPE.startsWith("A08") || item.acc_TYPE.startsWith("A09"));
         }
 
         clearAccidentInfo(); // 리스트 초기화
@@ -245,8 +168,6 @@ $(document).ready(function() {
 
     accinfo();
 });
-
 </script>
-
 <%@ include file="footer.jsp" %>
 </html>
