@@ -40,7 +40,7 @@
 				속도정보 넣을 거에요
 			</div>
 			<div style="width: 260px; height: 300px; border-bottom: 1px solid #ddd;">
-				공지사항 
+				<p>공지사항</p>
 				
 				<c:forEach items="${list }" var="dto">
 			    	<a href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br>		          
