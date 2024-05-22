@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.tech.straffic.service.HomeNoticeService;
 import com.tech.straffic.service.NoticeContentService;
 import com.tech.straffic.service.NoticeDeleteService;
 import com.tech.straffic.service.NoticeEditService;
@@ -28,14 +29,15 @@ public class StrafficController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-
+		
+		strafficService = new HomeNoticeService(sqlSession);
+		strafficService.execute(model);
 		
 		return "home";
 	}
 
 	@RequestMapping(value = "/strafficB", method = RequestMethod.GET)
 	public String strafficB(Model model) {
-		
 		
 		return "strafficB";
 	}

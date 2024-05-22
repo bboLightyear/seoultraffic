@@ -26,4 +26,6 @@ public interface StrafficDao {
 
 	ArrayList<BSubRateDto> bsubrate();
 
+	ArrayList<StrafficNoticeDto> homenotice();
+
 }
