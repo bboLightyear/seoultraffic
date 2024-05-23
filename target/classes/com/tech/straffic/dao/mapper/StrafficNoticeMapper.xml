@@ -86,5 +86,12 @@
 		ORDER BY
 		  	EXTRACT(YEAR FROM joindate)
    	</select>   	
+
+	<select id="accidataavg" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			YEAR,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFOYEARAVG 
+   	</select>   	
    	
 </mapper>

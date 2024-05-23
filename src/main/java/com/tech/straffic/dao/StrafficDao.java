@@ -2,6 +2,7 @@ package com.tech.straffic.dao;
 
 import java.util.ArrayList;
 
+import com.tech.straffic.dto.AcciDataDto;
 import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
 import com.tech.straffic.dto.StrafficNoticeDto;
@@ -28,4 +29,5 @@ public interface StrafficDao {
 
 	ArrayList<StrafficNoticeDto> homenotice();
 
+	ArrayList<AcciDataDto> accidataavg();
 }

@@ -7,6 +7,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&libraries=services&autoload=false"></script>
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script> -->
 <link rel="stylesheet" href="resources/css/straffic.css" />
 </head>
 <%@ include file="header.jsp" %>
@@ -93,11 +95,13 @@
 		<div id="accinfodiv">
 			<ul></ul>
 		</div>
+		
+		<div id="accidatadiv">
+			<canvas id="accidatacanvas"></canvas>
+		</div>
 	</div>
 
 </body>
-<script>
-
-</script>
+<script type="text/javascript" src="resources/js/straffichome.js"></script>
 <%@ include file="footer.jsp" %>
 </html>

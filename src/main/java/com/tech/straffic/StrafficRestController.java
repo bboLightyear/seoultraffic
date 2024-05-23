@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
 import com.tech.straffic.dao.StrafficDao;
+import com.tech.straffic.dto.AcciDataDto;
 import com.tech.straffic.dto.AccidentInfoDto;
 import com.tech.straffic.dto.BStorageInfoDto;
 import com.tech.straffic.dto.BSubRateDto;
@@ -224,6 +225,20 @@ public class StrafficRestController {
 	    }
 
 	    return weatherinfo;
+	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/accidata")
+	@ResponseBody
+	public ArrayList<AcciDataDto> accidata(HttpServletRequest request) throws ClassNotFoundException {
+		System.out.println("accidata rest con()");
+		
+		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+		
+		ArrayList<AcciDataDto> accidataavg = dao.accidataavg();
+		
+		System.out.println(accidataavg.size());
+
+		return accidataavg;
 	}
 	
 }
