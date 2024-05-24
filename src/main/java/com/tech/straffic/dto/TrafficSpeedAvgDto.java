@@ -1,7 +1,7 @@
 package com.tech.straffic.dto;
 
-public class TrafficSpeedAvg {
-	private String date;
+public class TrafficSpeedAvgDto {
+	private String sdate;
 	private Float avg;
 	private Float gangnam;
 	private Float gangbuk;
@@ -31,16 +31,16 @@ public class TrafficSpeedAvg {
 	private Float songpa_gu;
 	private Float gangdong_gu;
 	
-	public TrafficSpeedAvg() {
+	public TrafficSpeedAvgDto() {
 	
 	}
 
 	public String getDate() {
-		return date;
+		return sdate;
 	}
 
 	public void setDate(String date) {
-		this.date = date;
+		this.sdate = date;
 	}
 
 	public Float getAvg() {

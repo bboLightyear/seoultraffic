@@ -285,6 +285,7 @@ public class StrafficRestController {
 		// 연도에 따른 데이터 가져오기
 		ArrayList<AcciDataDto> sppeddata = dao.sppeddata(year);
 		
+		System.out.println(sppeddata);
 		System.out.println(sppeddata.size());
 		
 		return sppeddata;

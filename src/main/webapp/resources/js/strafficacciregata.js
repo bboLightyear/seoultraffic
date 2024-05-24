@@ -117,8 +117,8 @@ function accidatareg(year) {
     });
 }
 
-function trafficspeeddata(year) {
-	let myCt = document.getElementById('accidataregcanvas').getContext('2d');
+/*function trafficspeeddata(year) {
+	let myCt = document.getElementById('speeddatacanvas').getContext('2d');
 	
 	let accidataregdiv = document.getElementById('accidataregdiv');
 	let accidatatotdiv = document.getElementById('accidatatotdiv');
@@ -140,7 +140,7 @@ function trafficspeeddata(year) {
 			accidatadiv.style.display = 'none';
 			
 			// 연도별 데이터를 저장할 배열 초기화
-			let date = [];
+			let sdate = [];
 			let avg = [];
 			let gangnam = [];
 			let gangbuk = [];
@@ -159,8 +159,8 @@ function trafficspeeddata(year) {
 			let seodaemun_gu = [];
 			let mapo_gu = [];
 			let yangcheon_gu = [];
-			let gangseo_guv = [];
-			let guro_guv = [];
+			let gangseo_gu = [];
+			let guro_gu = [];
 			let geumcheon_gu = [];
 			let yeongdeungpo_gu = [];
 			let dongjak_gu = [];
@@ -172,7 +172,7 @@ function trafficspeeddata(year) {
 			
 			// 데이터 순회하며 연도별 데이터 추출
             data.forEach(item => {
-                date.push(item.date);
+                sdate.push(item.sdate);
                 avg.push(item.avg);
                 gangnam.push(item.gangnam);
                 gangbuk.push(item.gangbuk);
@@ -209,10 +209,10 @@ function trafficspeeddata(year) {
 			}
 			
 			// 차트 데이터 설정
-            let myChart = new Chart(myCt, {
+            myChart = new Chart(myCt, {
                 type: 'bar', // 기본 차트 타입을 'bar'로 설정
                 data: {
-                    labels: date,
+                    labels: sdate,
                     datasets: [
                         {
                             label: '평균 속도',
@@ -283,4 +283,199 @@ function trafficspeeddata(year) {
 			console.log("실패", error);
 		}
 	});
+}*/
+
+/*function trafficspeeddata(year) {
+	let myCt = document.getElementById('speeddatacanvas').getContext('2d');
+	
+	let accidataregdiv = document.getElementById('accidataregdiv');
+	let accidatatotdiv = document.getElementById('accidatatotdiv');
+	let accidatadiv = document.getElementById('accidatadiv');
+	let speeddatadiv = document.getElementById('speeddatadiv');
+	
+	$.ajax({
+		type: "post",
+		async: true,
+		url: "trafficspeeddata/" + year,
+		success: function(data) {
+			console.log("성공");
+			console.log(data);
+			
+			speeddatadiv.style.display = 'block';
+			
+			accidataregdiv.style.display = 'none';
+			accidatatotdiv.style.display = 'none';
+			accidatadiv.style.display = 'none';
+			
+			// 연도별 데이터를 저장할 배열 초기화
+			let sdate = [];
+			let avg = [];
+			let gangnam = [];
+			let gangbuk = [];
+			let jongno_gu = [];
+			let jung_gu = [];
+			let yongsan_gu = [];
+			let seongdong_gu = [];
+			let gwangjin_gu = [];
+			let dongdaemun_gu = [];
+			let jungnang_gu = [];
+			let seongbuk_gu = [];
+			let gangbuk_gu = [];
+			let dobong_gu = [];
+			let nowon_gu = [];
+			let eunpyeong_gu = [];
+			let seodaemun_gu = [];
+			let mapo_gu = [];
+			let yangcheon_gu = [];
+			let gangseo_gu = [];
+			let guro_gu = [];
+			let geumcheon_gu = [];
+			let yeongdeungpo_gu = [];
+			let dongjak_gu = [];
+			let gwanak_gu = [];
+			let seocho_gu = [];
+			let gangnam_gu = [];
+			let songpa_gu = [];
+			let gangdong_gu = [];
+
+			// 다른 구 데이터 배열도 초기화
+			
+			// 데이터 순회하며 연도별 데이터 추출
+			data.forEach(item => {
+				sdate.push(item.sdate);
+				jung_gu.push(item.jung_gu);
+				jongno_gu.push(item.jongno_gu);
+				// 다른 구 데이터도 추출하여 해당 배열에 추가
+			});
+			
+			// 이전 차트가 존재하면 파괴
+			if (myChart) {
+				myChart.destroy();
+			}
+			
+			// 차트 데이터 설정
+			myChart = new Chart(myCt, {
+				type: 'line', // 차트 타입을 'line'으로 설정
+				data: {
+					labels: sdate,
+					datasets: [
+						{
+							label: '중구',
+							data: avg,
+							borderColor: 'rgba(255, 99, 132, 1)',
+							fill: false
+						},
+						{
+							label: '종로구',
+							data: gangnam,
+							borderColor: 'rgba(54, 162, 235, 1)',
+							fill: false
+						},
+						// 다른 구 데이터셋도 추가
+					]
+				},
+				options: {
+					scales: {
+						xAxes: [{
+							type: 'time',
+							time: {
+								unit: 'month'
+							}
+						}],
+						yAxes: [{
+							ticks: {
+								callback: function(value) { return value.toLocaleString(); }
+							},
+							title: {
+								display: true,
+								text: '속도 (km/h)'
+							}
+						}]
+					}
+				}
+			});
+		},
+		error: function(error) {
+			console.log("실패", error);
+		}
+	});
+}*/
+
+function trafficspeeddata(year) {
+    let myCt = document.getElementById('speeddatacanvas').getContext('2d');
+
+    let accidataregdiv = document.getElementById('accidataregdiv');
+    let accidatatotdiv = document.getElementById('accidatatotdiv');
+    let accidatadiv = document.getElementById('accidatadiv');
+    let speeddatadiv = document.getElementById('speeddatadiv');
+
+    $.ajax({
+        type: "post",
+        async: true,
+        url: "trafficspeeddata/" + year,
+        success: function(data) {
+            console.log("성공");
+            console.log(data);
+
+            speeddatadiv.style.display = 'block';
+
+            accidataregdiv.style.display = 'none';
+            accidatatotdiv.style.display = 'none';
+            accidatadiv.style.display = 'none';
+
+            // 연도별 데이터를 저장할 배열 초기화
+            let months = []; // 월별 레이블
+            let avgSpeeds = []; // 월별 평균 속도
+
+            // 데이터 순회하며 월별 데이터 추출
+            data.forEach(item => {
+                months.push(item.sdate.substring(5, 7)); // 월만 추출하여 레이블로 사용
+                avgSpeeds.push(item.avg);
+            });
+
+            // 이전 차트가 존재하면 파괴
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // 차트 데이터 설정
+            myChart = new Chart(myCt, {
+                type: 'line', // 선형 차트로 변경
+                data: {
+                    labels: months, // 월별 레이블 설정
+                    datasets: [
+                        {
+                            label: '월별 평균 속도',
+                            data: avgSpeeds,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) { return value.toLocaleString(); }
+                            },
+                            title: {
+                                display: true,
+                                text: '속도 (km/h)'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                callback: function(value) { return value + '월'; } // 월 레이블 표시
+                            }
+                        }
+                    }
+                }
+            });
+        },
+        error: function(error) {
+            console.log("실패", error);
+        }
+    });
 }

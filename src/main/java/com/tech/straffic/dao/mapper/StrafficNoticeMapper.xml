@@ -108,9 +108,9 @@
 			ACCIINFO${year} 
    	</select>   	
 
-	<select id="sppeddata" parameterType="int" resultType="com.tech.straffic.dto.AcciDataDto">
+    <select id="sppeddata" parameterType="int" resultType="com.tech.straffic.dto.TrafficSpeedAvgDto">
 		SELECT 
-		   "date", 
+		   "sdate","avg"
 	       "Jongno_gu", "Jung_gu", "Yongsan_gu", "Seongdong_gu", "Gwangjin_gu", 
 	       "Dongdaemun_gu", "Jungnang_gu", "Seongbuk_gu", "Gangbuk_gu", "Dobong_gu", 
 	       "Nowon_gu", "Eunpyeong_gu", "Seodaemun_gu", "Mapo_gu", "Yangcheon_gu", 
@@ -119,7 +119,7 @@
 		FROM 
 			TRAFFICSPEEDAVG
 		WHERE 
-			"date" LIKE '${year}%'
-   	</select>   	
+			"sdate" LIKE '${year}%'
+    </select>
    	
 </mapper>
