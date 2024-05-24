@@ -2,6 +2,8 @@ package com.tech.straffic.dao;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.tech.straffic.dto.AcciDataDto;
 import com.tech.straffic.dto.BSubRateDto;
 import com.tech.straffic.dto.BUsageDto;
@@ -30,4 +32,8 @@ public interface StrafficDao {
 	ArrayList<StrafficNoticeDto> homenotice();
 
 	ArrayList<AcciDataDto> accidataavg();
+
+	ArrayList<AcciDataDto> accidatatot();
+
+	ArrayList<AcciDataDto> accidatareg(@Param("year") int year);
 }

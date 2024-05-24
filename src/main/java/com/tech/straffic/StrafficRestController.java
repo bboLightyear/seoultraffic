@@ -11,8 +11,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.XML;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -240,5 +243,48 @@ public class StrafficRestController {
 
 		return accidataavg;
 	}
+
+	@RequestMapping(method = RequestMethod.POST, value = "/accidatatot")
+	@ResponseBody
+	public ArrayList<AcciDataDto> accidatatot(HttpServletRequest request) throws ClassNotFoundException {
+		System.out.println("accidatatot rest con()");
+		
+		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+		
+		ArrayList<AcciDataDto> accidatatot = dao.accidatatot();
+		
+		System.out.println(accidatatot.size());
+		
+		return accidatatot;
+	}
+
+//	@RequestMapping(method = RequestMethod.POST, value = "/accidatareg/")
+//	@ResponseBody
+//	public ArrayList<AcciDataDto> accidatareg(HttpServletRequest request,@RequestParam int year) throws ClassNotFoundException {
+//		System.out.println("accidatareg rest con()");
+//		
+//		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+//		
+//		ArrayList<AcciDataDto> accidatareg = dao.accidatareg(year);
+//		
+//		System.out.println(accidatareg.size());
+//		
+//		return accidatareg;
+//	}
+	@PostMapping("/accidatareg/{year}")
+    @ResponseBody
+    public ArrayList<AcciDataDto> accidatareg(@PathVariable int year) throws ClassNotFoundException {
+        System.out.println("accidatareg rest con()");
+        System.out.println("Year: " + year);
+
+        StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+
+        // 연도에 따른 데이터 가져오기
+        ArrayList<AcciDataDto> accidatareg = dao.accidatareg(year);
+
+        System.out.println(accidatareg.size());
+
+        return accidatareg;
+    }	
 	
 }

@@ -21,7 +21,7 @@
 	            <p style="margin: 0">돌발<br>정보</p>
 	        </label>
 	
-	        <input type="radio" id="controlinfo" name="info" class="radiobtn" onclick="accidata()" style="display: none;">
+	        <input type="radio" id="controlinfo" name="info" class="radiobtn" onclick="accidata(); accidatatot();" style="display: none;">
 	        <label for="controlinfo" class="sidebarbtn">
 	            <img alt="control_img" src="resources/img/analytics.png" style="width: 40px; height: 40px;">
 	            <p style="margin: 0">교통사고<br>정보</p>
@@ -96,12 +96,33 @@
 			<ul></ul>
 		</div>
 		
-		<div id="accidatadiv">
+		<div id="accidatadiv" style="display: none; width: 800px;">
+			<input type="button" onclick="accidatareg(2014)" value="지역별 사고 건수" />
 			<canvas id="accidatacanvas"></canvas>
 		</div>
+		
+		<div id="accidatatotdiv" style="display: none; width: 800px;">
+			<canvas id="accidatatotcanvas"></canvas>
+		</div>
+
+		<div id="accidataregdiv" style="display: none; width: 1200px;">
+			<input type="button" onclick="accidatareg(2014)" value="2014" />
+			<input type="button" onclick="accidatareg(2015)" value="2015" />
+			<input type="button" onclick="accidatareg(2016)" value="2016" />
+			<input type="button" onclick="accidatareg(2017)" value="2017" />
+			<input type="button" onclick="accidatareg(2018)" value="2018" />
+			<input type="button" onclick="accidatareg(2019)" value="2019" />
+			<input type="button" onclick="accidatareg(2020)" value="2020" />
+			<input type="button" onclick="accidatareg(2021)" value="2021" />
+			<input type="button" onclick="accidatareg(2022)" value="2022" />
+			<input type="button" onclick="accidatareg(2023)" value="2023" />
+			<canvas id="accidataregcanvas"></canvas>
+		</div>
+
 	</div>
 
 </body>
 <script type="text/javascript" src="resources/js/straffichome.js"></script>
+<script type="text/javascript" src="resources/js/strafficacciregata.js"></script>
 <%@ include file="footer.jsp" %>
 </html>

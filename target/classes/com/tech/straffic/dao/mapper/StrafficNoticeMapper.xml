@@ -93,5 +93,19 @@
 		FROM
 			ACCIINFOYEARAVG 
    	</select>   	
+	
+	<select id="accidatatot" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			YEAR,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFOYEARTOT 
+   	</select>   	
+
+	<select id="accidatareg" parameterType="int" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			REG,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFO${year} 
+   	</select>   	
    	
 </mapper>
