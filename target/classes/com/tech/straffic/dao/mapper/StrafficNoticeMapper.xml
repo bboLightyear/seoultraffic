@@ -107,5 +107,19 @@
 		FROM
 			ACCIINFO${year} 
    	</select>   	
+
+	<select id="sppeddata" parameterType="int" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+		   "date", 
+	       "Jongno_gu", "Jung_gu", "Yongsan_gu", "Seongdong_gu", "Gwangjin_gu", 
+	       "Dongdaemun_gu", "Jungnang_gu", "Seongbuk_gu", "Gangbuk_gu", "Dobong_gu", 
+	       "Nowon_gu", "Eunpyeong_gu", "Seodaemun_gu", "Mapo_gu", "Yangcheon_gu", 
+	       "Gangseo_gu", "Guro_gu", "Geumcheon_gu", "Yeongdeungpo_gu", "Dongjak_gu", 
+	   	   "Gwanak_gu", "Seocho_gu", "Gangnam_gu", "Songpa_gu", "Gangdong_gu"
+		FROM 
+			TRAFFICSPEEDAVG
+		WHERE 
+			"date" LIKE '${year}%'
+   	</select>   	
    	
 </mapper>

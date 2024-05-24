@@ -27,7 +27,7 @@
 	            <p style="margin: 0">교통사고<br>정보</p>
 	        </label>
 	
-	        <input type="radio" id="bikeinfo" name="info" class="radiobtn" onclick="trafficspeeddata()" style="display: none;">
+	        <input type="radio" id="bikeinfo" name="info" class="radiobtn" onclick="trafficspeeddata(2014)" style="display: none;">
 	        <label for="bikeinfo" class="sidebarbtn">
 	            <img alt="bike_img" src="resources/img/analytics.png" style="width: 40px; height: 40px;">
 	            <p style="margin: 0">속도<br>정보</p>
@@ -117,6 +117,20 @@
 			<input type="button" onclick="accidatareg(2022)" value="2022" />
 			<input type="button" onclick="accidatareg(2023)" value="2023" />
 			<canvas id="accidataregcanvas"></canvas>
+		</div>
+
+		<div id="speeddatadiv" style="display: none; width: 1200px;">
+			<input type="button" onclick="trafficspeeddata(2014)" value="2014" />
+			<input type="button" onclick="trafficspeeddata(2015)" value="2015" />
+			<input type="button" onclick="trafficspeeddata(2016)" value="2016" />
+			<input type="button" onclick="trafficspeeddata(2017)" value="2017" />
+			<input type="button" onclick="trafficspeeddata(2018)" value="2018" />
+			<input type="button" onclick="trafficspeeddata(2019)" value="2019" />
+			<input type="button" onclick="trafficspeeddata(2020)" value="2020" />
+			<input type="button" onclick="trafficspeeddata(2021)" value="2021" />
+			<input type="button" onclick="trafficspeeddata(2022)" value="2022" />
+			<input type="button" onclick="trafficspeeddata(2023)" value="2023" />
+			<canvas id="speeddatacanvas"></canvas>
 		</div>
 
 	</div>

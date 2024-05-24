@@ -258,19 +258,6 @@ public class StrafficRestController {
 		return accidatatot;
 	}
 
-//	@RequestMapping(method = RequestMethod.POST, value = "/accidatareg/")
-//	@ResponseBody
-//	public ArrayList<AcciDataDto> accidatareg(HttpServletRequest request,@RequestParam int year) throws ClassNotFoundException {
-//		System.out.println("accidatareg rest con()");
-//		
-//		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
-//		
-//		ArrayList<AcciDataDto> accidatareg = dao.accidatareg(year);
-//		
-//		System.out.println(accidatareg.size());
-//		
-//		return accidatareg;
-//	}
 	@PostMapping("/accidatareg/{year}")
     @ResponseBody
     public ArrayList<AcciDataDto> accidatareg(@PathVariable int year) throws ClassNotFoundException {
@@ -286,5 +273,21 @@ public class StrafficRestController {
 
         return accidatareg;
     }	
+
+	@PostMapping("/trafficspeeddata/{year}")
+	@ResponseBody
+	public ArrayList<AcciDataDto> trafficspeeddata(@PathVariable int year) throws ClassNotFoundException {
+		System.out.println("accidatareg rest con()");
+		System.out.println("Year: " + year);
+		
+		StrafficDao dao = sqlSession.getMapper(StrafficDao.class);
+		
+		// 연도에 따른 데이터 가져오기
+		ArrayList<AcciDataDto> sppeddata = dao.sppeddata(year);
+		
+		System.out.println(sppeddata.size());
+		
+		return sppeddata;
+	}	
 	
 }

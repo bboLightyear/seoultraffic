@@ -36,4 +36,6 @@ public interface StrafficDao {
 	ArrayList<AcciDataDto> accidatatot();
 
 	ArrayList<AcciDataDto> accidatareg(@Param("year") int year);
+
+	ArrayList<AcciDataDto> sppeddata(@Param("year") int year);
 }
