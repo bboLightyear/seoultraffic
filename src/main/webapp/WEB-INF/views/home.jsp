@@ -8,6 +8,8 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d97b909cd863aa67602cb221511183bf&libraries=services&autoload=false"></script>
 <script type="text/javascript" src="resources/js/strafficB.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment"></script>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script> -->
 <link rel="stylesheet" href="resources/css/straffic.css" />
 </head>
@@ -66,25 +68,25 @@
 		<div class="hometabhead">
 			<ul>
 				<li>
-					<input type="radio" id="allaccident" name="accinfo" checked="checked"/>
+					<input type="radio" id="allaccident" name="accinfo" checked="checked" style="display: none;"/>
 					<label for="allaccident" class="accinfolabel">
 						<h4 style="margin: 0">전체</h4>
 					</label> 
 				</li>
 				<li>
-					<input type="radio" id="accident" name="accinfo"/>
+					<input type="radio" id="accident" name="accinfo" style="display: none;"/>
 					<label for="accident" class="accinfolabel">
 						<h4 style="margin: 0">사고/고장</h4>
 					</label>
 				</li>
 				<li>
-					<input type="radio" id="construction" name="accinfo"/>
+					<input type="radio" id="construction" name="accinfo" style="display: none;"/>
 					<label for="construction" class="accinfolabel">
 						<h4 style="margin: 0">공사/집회</h4>
 					</label> 
 				</li>
 				<li>
-					<input type="radio" id="weather" name="accinfo"/>
+					<input type="radio" id="weather" name="accinfo" style="display: none;"/>
 					<label for="weather" class="accinfolabel">
 						<h4 style="margin: 0">기상/화재</h4>
 					</label>
