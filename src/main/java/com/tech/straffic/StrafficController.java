@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.tech.straffic.service.CrollingService;
 import com.tech.straffic.service.HomeNoticeService;
 import com.tech.straffic.service.NoticeContentService;
 import com.tech.straffic.service.NoticeDeleteService;
@@ -32,6 +33,9 @@ public class StrafficController {
 		
 		strafficService = new HomeNoticeService(sqlSession);
 		strafficService.execute(model);
+		
+		strafficService = new CrollingService();
+		strafficService.execute(model);		
 		
 		return "home";
 	}
