@@ -15,33 +15,25 @@
         </div>
         <div class="wrapper">
             <ul class="lists">
-                <li class="lists_li"><a href="">교통정보</a>
-                    <ul class="depth_1">
-                        <li><a href="">속도 정보</a></li>
-                        <li><a href="">교통량 정보</a></li>
-                        <li><a href="">대중교통 정보</a></li>
-                        <li><a href="">교통현황 정보</a></li>
-                    </ul>
+                <li class="lists_li"><a href="/straffic">교통정보</a>
+
                 </li>
-                <li class="lists_li"><a href="">날씨정보</a>
+<!--                 <li class="lists_li"><a href="">날씨정보</a>
                     <ul class="depth_1">
                         <li><a href="">지역별 날씨</a></li>
                         <li><a href="">상세메뉴2</a></li>
                         <li><a href="">상세메뉴3</a></li>
                         <li><a href="">상세메뉴4</a></li>
                     </ul>
-                </li>
-                <li class="lists_li"><a href="">공지사항</a>
+                </li> -->
+                <li class="lists_li"><a href="strafficnotice">공지사항</a>
                     <ul class="depth_1">
-                        <li><a href="strafficnotice">공지사항</a></li>
-                        <li><a href="">FAQ</a></li>
+
                     </ul>
                 </li>
-                <li class="lists_li"><a href="">더보기</a>
+                <li class="lists_li"><a href="strafficB">따릉이 정보</a>
                     <ul class="depth_1">
-                        <li><a href="">장애인 콜 관련</a></li>
-                        <li><a href="">목적지 경로 찾기</a></li>
-                        <li><a href="strafficB">따릉이 대여소</a></li>
+  
                     </ul>
                 </li>
             </ul>
