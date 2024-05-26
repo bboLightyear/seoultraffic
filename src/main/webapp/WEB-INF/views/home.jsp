@@ -140,43 +140,63 @@
 		    </div>
 		</div>
 		
-		<div id="accidatadiv" style="display: none; width: 800px;">
-			<input type="button" onclick="accidatareg(2014)" value="지역별 사고 건수" />
-			<canvas id="accidatacanvas"></canvas>
-		</div>
-		
-		<div id="accidatatotdiv" style="display: none; width: 800px;">
-			<canvas id="accidatatotcanvas"></canvas>
+		<div id="waccidatadiv" style="display: none;">
+			
+			<h3 style="text-align: center; font-size: 25px; background-color: #1034a6; color: white; margin-top: 20; height: 45px; display: flex; align-items: center; justify-content: center;">사고 정보 데이터</h3>
+			<div style="width: 100%; display: flex; justify-content: center; margin-bottom: 20px;">
+				<input class="yearbtn" id="accidatabtn" type="button" onclick="accidatareg(2014)" value="지역별 정보 보기" />
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+				<div id="accidatadiv" style="display: none; width: 800px;">
+					<canvas id="accidatacanvas"></canvas>
+				</div>
+				
+				<div id="accidatatotdiv" style="display: none; width: 800px;">
+					<canvas id="accidatatotcanvas"></canvas>
+				</div>
+			</div>
+			
+			<div style="display: flex; justify-content: center;">
+				<div id="accidataregdiv" style="display: none; width: 1200px;">
+					<canvas id="accidataregcanvas"></canvas>
+					<div style="width: 100%; display: flex; justify-content: center; margin-top: 10px;">
+						<input class="yearbtn" type="button" onclick="accidatareg(2014)" value="2014" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2015)" value="2015" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2016)" value="2016" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2017)" value="2017" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2018)" value="2018" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2019)" value="2019" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2020)" value="2020" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2021)" value="2021" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2022)" value="2022" />
+						<input class="yearbtn" type="button" onclick="accidatareg(2023)" value="2023" />
+					</div>
+				</div>
+			</div>
+			
 		</div>
 
-		<div id="accidataregdiv" style="display: none; width: 1200px;">
-			<input type="button" onclick="accidatareg(2014)" value="2014" />
-			<input type="button" onclick="accidatareg(2015)" value="2015" />
-			<input type="button" onclick="accidatareg(2016)" value="2016" />
-			<input type="button" onclick="accidatareg(2017)" value="2017" />
-			<input type="button" onclick="accidatareg(2018)" value="2018" />
-			<input type="button" onclick="accidatareg(2019)" value="2019" />
-			<input type="button" onclick="accidatareg(2020)" value="2020" />
-			<input type="button" onclick="accidatareg(2021)" value="2021" />
-			<input type="button" onclick="accidatareg(2022)" value="2022" />
-			<input type="button" onclick="accidatareg(2023)" value="2023" />
-			<canvas id="accidataregcanvas"></canvas>
+		<div id="speeddatadiv" style="width: 100%; display: none;">
+			<h3 style="text-align: center; font-size: 25px; background-color: #1034a6; color: white; margin-top: 20; height: 45px; display: flex; align-items: center; justify-content: center;">서울시 속도정보 데이터</h3>
+			<div style="width: 100%; display: flex; justify-content: center;">
+				<div style="width: 1200px; display: flex; justify-content: center; flex-direction: column;">
+					<canvas id="speeddatacanvas"></canvas>
+					<div style="display: flex; justify-content:center; width: 1200px; margin-top: 20px;">
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2014)" value="2014" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2015)" value="2015" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2016)" value="2016" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2017)" value="2017" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2018)" value="2018" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2019)" value="2019" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2020)" value="2020" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2021)" value="2021" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2022)" value="2022" />
+						<input class="yearbtn" type="button" onclick="trafficspeeddata(2023)" value="2023" />
+					</div>
+				</div>
+			</div>
 		</div>
-
-		<div id="speeddatadiv" style="display: none; width: 1200px;">
-			<input type="button" onclick="trafficspeeddata(2014)" value="2014" />
-			<input type="button" onclick="trafficspeeddata(2015)" value="2015" />
-			<input type="button" onclick="trafficspeeddata(2016)" value="2016" />
-			<input type="button" onclick="trafficspeeddata(2017)" value="2017" />
-			<input type="button" onclick="trafficspeeddata(2018)" value="2018" />
-			<input type="button" onclick="trafficspeeddata(2019)" value="2019" />
-			<input type="button" onclick="trafficspeeddata(2020)" value="2020" />
-			<input type="button" onclick="trafficspeeddata(2021)" value="2021" />
-			<input type="button" onclick="trafficspeeddata(2022)" value="2022" />
-			<input type="button" onclick="trafficspeeddata(2023)" value="2023" />
-			<canvas id="speeddatacanvas"></canvas>
-		</div>
-
 	</div>
 
 </body>

@@ -6,6 +6,8 @@ function accidatareg(year) {
     let accidataregdiv = document.getElementById('accidataregdiv');
     let accidatatotdiv = document.getElementById('accidatatotdiv');
     let accidatadiv = document.getElementById('accidatadiv');
+    let waccidatadiv = document.getElementById('waccidatadiv');
+    let accidatabtn = document.getElementById('accidatabtn');
     
     $.ajax({
         type: "post",
@@ -18,6 +20,8 @@ function accidatareg(year) {
             accidataregdiv.style.display = 'block';
             accidatatotdiv.style.display = 'none';
             accidatadiv.style.display = 'none';
+            accidatabtn.style.display = 'none';
+/*            waccidatadiv.style.display = 'none';*/
             
             // 연도별 데이터를 저장할 배열 초기화
             let reg = [];
@@ -136,8 +140,9 @@ function trafficspeeddata(year) {
             speeddatadiv.style.display = 'block';
 
             accidataregdiv.style.display = 'none';
-            accidatatotdiv.style.display = 'none';
-            accidatadiv.style.display = 'none';
+/*            accidatatotdiv.style.display = 'none';
+            accidatadiv.style.display = 'none';*/
+            waccidatadiv.style.display = 'none';
 
             // 연도별 데이터를 저장할 배열 초기화
 			let sdate = [];

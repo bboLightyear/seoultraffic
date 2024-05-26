@@ -177,6 +177,9 @@ $(document).ready(function() {
 function accidata() {
     let myCt = document.getElementById('accidatacanvas').getContext('2d');
     let accidatadiv = document.getElementById('accidatadiv');
+    let waccidatadiv = document.getElementById('waccidatadiv');
+    let accidatabtn = document.getElementById('accidatabtn');
+    let speeddatadiv = document.getElementById('speeddatadiv');
     
     $.ajax({
         type: "post",
@@ -187,6 +190,9 @@ function accidata() {
             console.log(data);
             
             accidatadiv.style.display = 'block';
+            waccidatadiv.style.display = 'block';
+            accidatabtn.style.display = 'block';
+            speeddatadiv.style.display = 'none';
             
             // 연도별 데이터를 저장할 배열 초기화
             let years = [];
