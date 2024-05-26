@@ -124,8 +124,8 @@ $(document).ready(function() {
                 		"<img style='width:32px; height:32px;' src='" + imgSrc + "' alt='" + accidentData.acc_TYPE + "'></span>";
                 
                 htmlText += "<p style='margin-bottom:0; margin-left:10px;'><strong>정보:</strong>" + accidentData.acc_INFO + "</p></div>";
-                htmlText += "<div style='text-align:right; margin-right:10px;'><strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
-                htmlText += "<strong>예상 종료 시간:</strong>" + accidentData.exp_CLR_TIME;
+                htmlText += "<div style='text-align:right; margin-right:10px;'><strong>예상 종료일:</strong>" + formatDateString(accidentData.exp_CLR_DATE) + "<br>";
+                htmlText += "<strong>예상 종료 시간:</strong>" + formatTimeString(accidentData.exp_CLR_TIME);
                 htmlText += "</div></div>";
             }
         } else {
@@ -144,6 +144,34 @@ $(document).ready(function() {
         }
 
         $(accinfodiv).find("div").append(htmlText);
+    }
+    // 날짜 문자열 형식을 변경하는 함수
+    function formatDateString(dateString) {
+    	
+    	var dateString = dateString.toString();
+    	
+        var year = dateString.substring(0, 4);
+        var month = dateString.substring(4, 6);
+        var day = dateString.substring(6, 8);
+        return year + '.' + month + '.' + day;
+    }
+
+    // 시간 문자열 형식을 변경하는 함수
+    function formatTimeString(timeString) {
+    	
+    	var timeString = timeString.toString();
+    	
+        // 시간 문자열의 길이에 따라서 시와 분을 추출
+        var hour, minute;
+        if (timeString.length === 5) { // 5글자인 경우
+            hour = timeString.substring(0, 1);
+            minute = timeString.substring(2, 4);
+        } else if (timeString.length === 6) { // 6글자인 경우
+            hour = timeString.substring(0, 2);
+            minute = timeString.substring(3, 5);
+        }
+        
+        return hour + ':' + minute;
     }
 
     // 사고 정보를 필터링하는 함수
