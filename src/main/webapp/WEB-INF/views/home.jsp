@@ -36,21 +36,56 @@
 	        </label>
 		</div> 
 		
-		<div style="width: 260px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
-			<div  id="weatherinfodiv" style="width: 260px; height: 159px; border-bottom: 1px solid #ddd;">
+		<div style="width: 280px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
+			<div  id="weatherinfodiv" style="width: 280px; height: 159px; border-bottom: 1px solid #ddd;">
 				<h3 style="text-align: center;">날씨</h3>
 			</div>
-			<div style="width: 260px; height: 80px; border-bottom: 1px solid #ddd;">
+			<div style="width: 280px; height: 80px; border-bottom: 1px solid #ddd;">
 
-				<p style="margin: 0">서울시 전체 속도 ${spdStat1Det} ${spdStat1}</p>
+				<h4 style="margin: 0; text-align: center; margin-top: 20px;">
+					서울시 전체 속도 
+				    <c:choose>
+				        <c:when test="${spdStat1Det eq '서행'}">
+				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat1Det eq '혼잡'}">
+				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat1Det eq '원활'}">
+				            <span style="background-color: #32c753; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:otherwise>
+				            <span>${spdStat1Det}</span>
+				        </c:otherwise>
+				    </c:choose>
+					${spdStat1}
+				</h4>
 
-				<p style="margin: 0">도심 전체 속도 ${spdStat2Det} ${spdStat2}</p>
+				<h4 style="margin: 0; text-align: center; margin-top: 10px;">
+					도심 전체 속도 
+					<c:choose>
+				        <c:when test="${spdStat2Det eq '서행'}">
+				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat2Det eq '혼잡'}">
+				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat2Det eq '원활'}">
+				            <span style="background-color: #32c753; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:otherwise>
+				            <span>${spdStat1Det}</span>
+				        </c:otherwise>
+				    </c:choose>
+					${spdStat2}
+				</h4>
+				
 			</div>
-			<div style="width: 260px; height: 300px; border-bottom: 1px solid #ddd;">
+			<div style="width: 280px; height: 300px;">
 				<h3 style="text-align: center;">공지사항</h3>
 				
 				<c:forEach items="${list }" var="dto">
-			    	<a style="text-decoration: none; color: black; margin-bottom: 10px;" href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br>		          
+			    	<p style="margin-bottom:10px; margin-top: 0px;"><a style="margin-left:3px;margin-right:3px; font-size:15px;font-weight:bold; text-decoration: none; color: black;" href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br></p>		          
 			  	</c:forEach>
 			</div>
 		</div>

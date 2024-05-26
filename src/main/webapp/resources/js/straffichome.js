@@ -37,16 +37,21 @@ $(document).ready(function() {
             	
                 if (Array.isArray(data) && data.length > 0) {
                 var weatherData = data[0];
-                htmlText += "<li>";
-                htmlText += "<strong>날씨:</strong>" + weatherData.description + "<br>";
-                htmlText += "<strong>기온:</strong>" + weatherData.temp + "<br>";
-                htmlText += "<strong>최저기온:</strong>" + weatherData.temp_min + "<br>";
-                htmlText += "<strong>최고기온:</strong>" + weatherData.temp_max + "<br>";
-                htmlText += "<strong>지역:</strong>" + weatherData.name;
-                htmlText += "</li>";
+                htmlText += "<div class='weatherdatadiv'>";
+                htmlText += "<p style='text-align: center;'><strong>지역&nbsp;</strong>" + weatherData.name + "</p>";
+
+                htmlText += "<div class='weatherdatadiv2'>";
+                
+                htmlText += "<div style='width:140px;'><p class='weatherp' style='margin-top:0;'><strong>날씨&nbsp;</strong>" + weatherData.description + "</p>";
+                htmlText += "<p class='weatherp'><strong>기온&nbsp;</strong>" + weatherData.temp + "&nbsp;ºC</p></div>";
+                htmlText += "<div style='width:140px;'><p class='weatherp' style='margin-top:0;'><strong>최저&nbsp;</strong>" + weatherData.temp_min + "&nbsp;ºC</p>";
+                htmlText += "<p class='weatherp'><strong>최고&nbsp;</strong>" + weatherData.temp_max + "&nbsp;ºC</p></div>";
+
+                htmlText += "</div>";
+                htmlText += "</div>";
             
                 } else {
-                    htmlText += "<li>날씨 정보를 불러오지 못했습니다.</li>";
+                    htmlText += "<h4>날씨 정보를 불러오지 못했습니다.</h4>";
                 }
                 
                 $(weatherinfodiv).append(htmlText);

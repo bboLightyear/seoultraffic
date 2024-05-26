@@ -39,7 +39,19 @@
 .hometabhead li {
     margin-right: 20px;     /* 항목 간 간격 설정 */
 }
+.weatherdatadiv{
+	display: block;
 
+}
+.weatherdatadiv2{
+	display: flex;
+	flex-direction: row;
+}
+.weatherp{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
 /*사고정보 ULLI*/
 #accinfodiv {
 	width: 900px;

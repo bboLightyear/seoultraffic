@@ -159,6 +159,7 @@ public class CrollingService implements StrafficService {
 	        ChromeOptions options = new ChromeOptions();
 	        options.setCapability("ignoreProtectedModeSettings", true);
 	        options.addArguments("--remote-allow-origins=*");
+	        options.addArguments("headless");
 
 
 	        // WebDriver 인스턴스를 생성합니다.
