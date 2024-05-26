@@ -104,7 +104,7 @@
 		</div>
 		
 		
-		<div style="width: 100%; text-align: center;">
+		<div style="width: 100%; text-align: center; display: flex; flex-direction: column; align-items: center;">
     		<div class="hometabhead" style="display: inline-block;">
 		        <ul style="display: flex; justify-content: center; padding: 0; list-style: none; margin-bottom: 20px; font-size: 20px;">
 		            <li style="margin: 0 10px; display: flex; align-items: center;">
