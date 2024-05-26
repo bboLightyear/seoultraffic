@@ -72,25 +72,78 @@ $(document).ready(function() {
             // 데이터가 배열일 경우
             for (var i = 0; i < data.length; i++) {
                 var accidentData = data[i];
-                htmlText += "<li data-type=" + accidentData.acc_TYPE + ">";
-                htmlText += "<strong>사고 ID:</strong>" + accidentData.acc_ID + "<br>";
-                htmlText += "<strong>정보:</strong>" + accidentData.acc_INFO + "<br>";
-                htmlText += "<strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
+                
+                var imgSrc;
+                
+                switch (accidentData.acc_TYPE) {
+                    case 'A01':
+                        imgSrc = 'resources/img/A01.png';
+                        break;
+                    case 'A02':
+                        imgSrc = 'resources/img/A02.png';
+                        break;
+                    case 'A03':
+                        imgSrc = 'resources/img/A03.png';
+                        break;
+                    case 'A04':
+                    	imgSrc = 'resources/img/A04.png';
+                    	break;
+                    case 'A05':
+                    	imgSrc = 'resources/img/A05.png';
+                    	break;
+                    case 'A06':
+                    	imgSrc = 'resources/img/A06.png';
+                    	break;
+                    case 'A07':
+                    	imgSrc = 'resources/img/A07.png';
+                    	break;
+                    case 'A08':
+                    	imgSrc = 'resources/img/A08.png';
+                    	break;
+                    case 'A09':
+                    	imgSrc = 'resources/img/A09.png';
+                    	break;
+                    case 'A10':
+                    	imgSrc = 'resources/img/A10.png';
+                    	break;
+                    case 'A11':
+                    	imgSrc = 'resources/img/A11.png';
+                    	break;
+                    case 'A12':
+                    	imgSrc = 'resources/img/A12.png';
+                    	break;
+                    
+                    default:
+                        imgSrc = 'resources/img/default.png';
+                }
+                
+                htmlText += "<div data-type=" + accidentData.acc_TYPE + ">";
+
+                htmlText += "<div style='display:flex;'>" +
+                		"<span style='display:flex; align-items: center;'>" +
+                		"<img style='width:32px; height:32px;' src='" + imgSrc + "' alt='" + accidentData.acc_TYPE + "'></span>";
+                
+                htmlText += "<p style='margin-bottom:0; margin-left:10px;'><strong>정보:</strong>" + accidentData.acc_INFO + "</p></div>";
+                htmlText += "<div style='text-align:right; margin-right:10px;'><strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
                 htmlText += "<strong>예상 종료 시간:</strong>" + accidentData.exp_CLR_TIME;
-                htmlText += "</li>";
+                htmlText += "</div></div>";
             }
         } else {
             // 데이터가 배열이 아닌 경우 (하나의 객체)
             var accidentData = data;
-            htmlText += "<li data-type=" + accidentData.acc_TYPE + ">";
-            htmlText += "<strong>사고 ID:</strong>" + accidentData.acc_ID + "<br>";
-            htmlText += "<strong>정보:</strong>" + accidentData.acc_INFO + "<br>";
+            
+
+            htmlText += "<div data-type=" + accidentData.acc_TYPE + ">";
+            
+            htmlText += "<img src='" + imgSrc + "' alt='" + accidentData.acc_TYPE + "'>";
+
+            htmlText += "<p><strong>정보:</strong>" + accidentData.acc_INFO + "</p>";
             htmlText += "<strong>예상 종료일:</strong>" + accidentData.exp_CLR_DATE + "<br>";
             htmlText += "<strong>예상 종료 시간:</strong>" + accidentData.exp_CLR_TIME;
-            htmlText += "</li>";
+            htmlText += "</div>";
         }
 
-        $(accinfodiv).find("ul").append(htmlText);
+        $(accinfodiv).find("div").append(htmlText);
     }
 
     // 사고 정보를 필터링하는 함수

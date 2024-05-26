@@ -135,7 +135,7 @@
 		    </div>
 		    <div style="border: 3px solid #1034a6; width:1030px; border-radius: 10px; display: inline-block;">
 			    <div id="accinfodiv">
-			        <ul></ul>
+			        <div></div>
 			    </div>
 		    </div>
 		</div>
