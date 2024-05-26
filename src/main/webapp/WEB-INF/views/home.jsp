@@ -38,19 +38,19 @@
 		
 		<div style="width: 260px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
 			<div  id="weatherinfodiv" style="width: 260px; height: 159px; border-bottom: 1px solid #ddd;">
-				날씨정보 넣을 거에요
+				<h3 style="text-align: center;">날씨</h3>
 			</div>
 			<div style="width: 260px; height: 80px; border-bottom: 1px solid #ddd;">
-				<p style="margin: 0">속도정보 넣을 거에요</p>
+
 				<p style="margin: 0">서울시 전체 속도 ${spdStat1Det} ${spdStat1}</p>
 
 				<p style="margin: 0">도심 전체 속도 ${spdStat2Det} ${spdStat2}</p>
 			</div>
 			<div style="width: 260px; height: 300px; border-bottom: 1px solid #ddd;">
-				<p>공지사항</p>
+				<h3 style="text-align: center;">공지사항</h3>
 				
 				<c:forEach items="${list }" var="dto">
-			    	<a href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br>		          
+			    	<a style="text-decoration: none; color: black; margin-bottom: 10px;" href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br>		          
 			  	</c:forEach>
 			</div>
 		</div>
