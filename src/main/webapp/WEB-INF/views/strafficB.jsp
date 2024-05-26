@@ -30,7 +30,7 @@
 		</button>
 	</div>
 	
-	<div style="width: 260px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
+<!-- 	<div style="width: 260px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
 		<div style="width: 260px; height: 159px; border-bottom: 1px solid #ddd;">
 			날씨정보 넣을 거에요
 		</div>
@@ -41,33 +41,87 @@
 			공지사항 넣을 거에요
 		</div>
 		
-	</div>
+	</div> -->
+		<div style="width: 280px; height: 600px; background-color: #f6f6f6; border: 1px solid #ddd; padding-left:80px; position: absolute; z-index: 2;">
+			<div  id="weatherinfodiv" style="width: 280px; height: 159px; border-bottom: 1px solid #ddd;">
+				<h3 style="text-align: center;">날씨</h3>
+			</div>
+			<div style="width: 280px; height: 80px; border-bottom: 1px solid #ddd;">
+
+				<h4 style="margin: 0; text-align: center; margin-top: 20px;">
+					서울시 전체 속도 
+				    <c:choose>
+				        <c:when test="${spdStat1Det eq '서행'}">
+				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat1Det eq '혼잡'}">
+				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat1Det eq '원활'}">
+				            <span style="background-color: #32c753; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
+				        </c:when>
+				        <c:otherwise>
+				            <span>${spdStat1Det}</span>
+				        </c:otherwise>
+				    </c:choose>
+					${spdStat1}
+				</h4>
+
+				<h4 style="margin: 0; text-align: center; margin-top: 10px;">
+					도심 전체 속도 
+					<c:choose>
+				        <c:when test="${spdStat2Det eq '서행'}">
+				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat2Det eq '혼잡'}">
+				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:when test="${spdStat2Det eq '원활'}">
+				            <span style="background-color: #32c753; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
+				        </c:when>
+				        <c:otherwise>
+				            <span>${spdStat1Det}</span>
+				        </c:otherwise>
+				    </c:choose>
+					${spdStat2}
+				</h4>
+				
+			</div>
+			<div style="width: 280px; height: 300px;">
+				<h3 style="text-align: center;">공지사항</h3>
+				
+				<c:forEach items="${list }" var="dto">
+			    	<p style="margin-bottom:10px; margin-top: 0px;"><a style="margin-left:3px;margin-right:3px; font-size:15px;font-weight:bold; text-decoration: none; color: black;" href="noticecontent?sno=${dto.sno}">${dto.stitle}</a></br></p>		          
+			  	</c:forEach>
+			</div>
+		</div>
 	
 	<div id="map" style="width :100% ;height:600px; position: relative; z-index: 1;"></div>
 </div>
 
 <div>
-	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 2px solid #1034a6;">
+	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 3px solid #1034a6;">
 		<h3 style="margin: 0; margin-left: 50px;">연도별 이용자 추이</h3>
 	</div>
 	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
-		<div style="width: 800px; display: none;" id="yearct">
+		<div style="width: 1200px; display: none;" id="yearct">
 			<canvas id="yearchart" height="100"></canvas>
 		</div>
 	</div>
 </div>
 
 <div>
-	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 2px solid #1034a6;">
+	<div style="width: 100%; height: 65px; display:flex; align-items:center; border-bottom: 3px solid #1034a6;">
 		<h3 style="margin: 0; margin-left: 50px; mar">연도별 가입자 추이</h3>
 	</div>
 	<div style="width: 100%; display: flex; align-items: center; justify-content: center;">
-		<div style="width: 800px;">
+		<div style="width: 1200px;">
 			<canvas id="subchart" height="100"></canvas>
 		</div>
 	</div>
 </div>
 </body>
+<script type="text/javascript" src="resources/js/straffichome.js"></script>
 <script>
 function busage() {
     let yearCt = document.getElementById('yearchart');

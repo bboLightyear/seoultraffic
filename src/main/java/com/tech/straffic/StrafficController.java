@@ -43,6 +43,12 @@ public class StrafficController {
 	@RequestMapping(value = "/strafficB", method = RequestMethod.GET)
 	public String strafficB(Model model) {
 		
+		strafficService = new HomeNoticeService(sqlSession);
+		strafficService.execute(model);
+		
+		strafficService = new CrollingService();
+		strafficService.execute(model);	
+		
 		return "strafficB";
 	}
 
