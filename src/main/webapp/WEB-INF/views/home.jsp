@@ -41,7 +41,10 @@
 				날씨정보 넣을 거에요
 			</div>
 			<div style="width: 260px; height: 80px; border-bottom: 1px solid #ddd;">
-				속도정보 넣을 거에요
+				<p style="margin: 0">속도정보 넣을 거에요</p>
+				<p style="margin: 0">서울시 전체 속도 ${spdStat1Det} ${spdStat1}</p>
+
+				<p style="margin: 0">도심 전체 속도 ${spdStat2Det} ${spdStat2}</p>
 			</div>
 			<div style="width: 260px; height: 300px; border-bottom: 1px solid #ddd;">
 				<p>공지사항</p>

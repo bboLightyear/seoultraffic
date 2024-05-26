@@ -177,12 +177,34 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		
+		<!--크롤링 제이솝-->
 		<dependency>    
 			<groupId>org.jsoup</groupId>    
 			<artifactId>jsoup</artifactId>    
 			<version>1.15.3</version>
 		</dependency>
 		
+		<!--크롤링 셀레니움-->
+    	<dependency>
+	        <groupId>org.seleniumhq.selenium</groupId>
+	        <artifactId>selenium-java</artifactId>
+	        <version>4.8.2</version> 
+	    </dependency>
+	    
+	    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>31.1-jre</version>
+		</dependency>
+
+		
+ 		<dependency>
+		    <groupId>io.github.bonigarcia</groupId>
+		    <artifactId>webdrivermanager</artifactId>
+		    <version>5.0.3</version>
+		</dependency>
 		
 	</dependencies>
     <build>
