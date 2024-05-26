@@ -100,40 +100,44 @@
 	
 	<div>
 		<div>
-			<h3>사고 및 통제 정보</h3>
+			<h3 style="text-align: center; font-size: 25px; background-color: #1034a6; color: white; margin-top: 0; height: 45px; display: flex; align-items: center; justify-content: center;">사고 및 통제 정보</h3>
 		</div>
 		
-		<div class="hometabhead">
-			<ul>
-				<li>
-					<input type="radio" id="allaccident" name="accinfo" checked="checked" style="display: none;"/>
-					<label for="allaccident" class="accinfolabel">
-						<h4 style="margin: 0">전체</h4>
-					</label> 
-				</li>
-				<li>
-					<input type="radio" id="accident" name="accinfo" style="display: none;"/>
-					<label for="accident" class="accinfolabel">
-						<h4 style="margin: 0">사고/고장</h4>
-					</label>
-				</li>
-				<li>
-					<input type="radio" id="construction" name="accinfo" style="display: none;"/>
-					<label for="construction" class="accinfolabel">
-						<h4 style="margin: 0">공사/집회</h4>
-					</label> 
-				</li>
-				<li>
-					<input type="radio" id="weather" name="accinfo" style="display: none;"/>
-					<label for="weather" class="accinfolabel">
-						<h4 style="margin: 0">기상/화재</h4>
-					</label>
-				</li>
-			</ul>
-		</div>
 		
-		<div id="accinfodiv">
-			<ul></ul>
+		<div style="width: 100%; text-align: center;">
+    		<div class="hometabhead" style="display: inline-block;">
+		        <ul style="display: flex; justify-content: center; padding: 0; list-style: none; margin-bottom: 20px; font-size: 20px;">
+		            <li style="margin: 0 10px; display: flex; align-items: center;">
+		                <input type="radio" id="allaccident" name="accinfo" checked="checked" style="display: none;"/>
+		                <label for="allaccident" class="accinfolabel">
+		                    <h4 style="margin: 0;">전체</h4>
+		                </label> 
+		            </li>
+		            <li style="margin: 0 10px; display: flex; align-items: center;">
+		                <input type="radio" id="accident" name="accinfo" style="display: none;"/>
+		                <label for="accident" class="accinfolabel">
+		                    <h4 style="margin: 0;">사고/고장</h4>
+		                </label>
+		            </li>
+		            <li style="margin: 0 10px; display: flex; align-items: center;">
+		                <input type="radio" id="construction" name="accinfo" style="display: none;"/>
+		                <label for="construction" class="accinfolabel">
+		                    <h4 style="margin: 0">공사/집회</h4>
+		                </label> 
+		            </li>
+		            <li style="margin: 0 10px; display: flex; align-items: center;">
+		                <input type="radio" id="weather" name="accinfo" style="display: none;"/>
+		                <label for="weather" class="accinfolabel">
+		                    <h4 style="margin: 0">기상/화재</h4>
+		                </label>
+		            </li>
+		        </ul>
+		    </div>
+		    <div style="border: 3px solid #1034a6; width:1030px; border-radius: 10px; display: inline-block;">
+			    <div id="accinfodiv">
+			        <ul></ul>
+			    </div>
+		    </div>
 		</div>
 		
 		<div id="accidatadiv" style="display: none; width: 800px;">
