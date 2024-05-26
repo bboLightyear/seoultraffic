@@ -33,11 +33,11 @@
 				<h4 style="font-size: 35px; margin: 0;">공지사항</h4>
 			</div>
 			
-			<div class="board_searchbox">
-				<form action="strafficnotice">
-					<input type="text" name="sk" value="${searchKeyword }"/>
-					<input type="submit" value="검색" />			
-				</form>
+			<div class="board_searchbox" style="display: flex; justify-content: center; align-items: center;">
+			    <form action="strafficnotice" style="text-align: center;">
+			        <input class="input" type="text" name="sk" value="${searchKeyword }"/>
+			        <input class="button" type="submit" value="검색" />			
+			    </form>
 			</div>
 			
 			<table class="rwd-table">
