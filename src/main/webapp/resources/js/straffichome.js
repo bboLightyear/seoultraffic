@@ -143,7 +143,7 @@ $(document).ready(function() {
             htmlText += "</div>";
         }
 
-        $(accinfodiv).find("div").append(htmlText);
+        $(accinfodiv).find("#acciinputdiv").append(htmlText);
     }
     // 날짜 문자열 형식을 변경하는 함수
     function formatDateString(dateString) {
@@ -193,7 +193,7 @@ $(document).ready(function() {
 
     // 사고 정보를 초기화하는 함수
     function clearAccidentInfo() {
-        $("#accinfodiv ul").empty(); // 리스트 내용 비움
+        $("#accinfodiv div").empty(); // 리스트 내용 비움
     }
 
     // 두 함수 호출
