@@ -48,7 +48,7 @@
 				        <c:when test="${spdStat1Det eq '서행'}">
 				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
 				        </c:when>
-				        <c:when test="${spdStat1Det eq '혼잡'}">
+				        <c:when test="${spdStat1Det eq '정체'}">
 				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat1Det}</span>
 				        </c:when>
 				        <c:when test="${spdStat1Det eq '원활'}">
@@ -67,7 +67,7 @@
 				        <c:when test="${spdStat2Det eq '서행'}">
 				            <span style="background-color:yellow; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
 				        </c:when>
-				        <c:when test="${spdStat2Det eq '혼잡'}">
+				        <c:when test="${spdStat2Det eq '정체'}">
 				            <span style="background-color:red; border-radius: 5px; display: inline-block; width: 50px; height: 20px; text-align: center; border: 2px solid black;">${spdStat2Det}</span>
 				        </c:when>
 				        <c:when test="${spdStat2Det eq '원활'}">

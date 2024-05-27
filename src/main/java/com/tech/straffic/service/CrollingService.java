@@ -83,7 +83,6 @@
 
 package com.tech.straffic.service;
 
-import java.io.IOException;
 import java.security.cert.CertificateException;
 
 import javax.net.ssl.HostnameVerifier;
@@ -120,13 +119,11 @@ public class CrollingService implements StrafficService {
 					@Override
 					public void checkClientTrusted(java.security.cert.X509Certificate[] arg0, String arg1)
 							throws CertificateException {
-						// 이 부분은 무시해도 됩니다.
 						
 					}
 					@Override
 					public void checkServerTrusted(java.security.cert.X509Certificate[] arg0, String arg1)
 							throws CertificateException {
-						// 이 부분은 무시해도 됩니다.
 						
 					}
                 }
@@ -160,31 +157,30 @@ public class CrollingService implements StrafficService {
 	        options.addArguments("headless");
 
 
-	        // WebDriver 인스턴스를 생성합니다.
+	        // WebDriver 생성
 	        WebDriver driver = new ChromeDriver(options);
 
 	        try {
 	        	
-	            // URL로 이동합니다.
+	            // URL로 이동
 	            driver.get("https://topis.seoul.go.kr/");
 	            
-	            // 페이지가 완전히 로드될 때까지 기다립니다.
-
+	            // 페이지가 완전히 로드될 때까지 대기
 	            Thread.sleep(5000); // 필요한 경우 더 긴 시간 대기
 	            
-	            // id가 spdStat2Det인 요소를 찾습니다.
+	            // id가 spdStat2Det인 요소
 	            WebElement spdStat1DetElement = driver.findElement(By.id("spdStat1Det"));
 	            String spdStat1Det = spdStat1DetElement != null ? spdStat1DetElement.getText() : "N/A";
 	            
-	            // id가 spdStat2인 요소를 찾습니다.
+	            // id가 spdStat2인 요소.
 	            WebElement spdStat1Element = driver.findElement(By.id("spdStat1"));
 	            String spdStat1 = spdStat1Element != null ? spdStat1Element.getText() : "N/A";
 
-	            // id가 spdStat2Det인 요소를 찾습니다.
+	            // id가 spdStat2Det인 요소
 	            WebElement spdStat2DetElement = driver.findElement(By.id("spdStat2Det"));
 	            String spdStat2Det = spdStat2DetElement != null ? spdStat2DetElement.getText() : "N/A";
 	            
-	            // id가 spdStat2인 요소를 찾습니다.
+	            // id가 spdStat2인 요소
 	            WebElement spdStat2Element = driver.findElement(By.id("spdStat2"));
 	            String spdStat2 = spdStat2Element != null ? spdStat2Element.getText() : "N/A";
 	            
@@ -201,7 +197,7 @@ public class CrollingService implements StrafficService {
 	        } catch (Exception e) {
 	            e.printStackTrace();
 	        } finally {
-	            // WebDriver를 종료합니다.
+	            // WebDriver 종료.
 	            driver.quit();
 	        }
 	    }
