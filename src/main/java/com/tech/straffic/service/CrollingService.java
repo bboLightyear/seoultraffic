@@ -150,8 +150,6 @@ public class CrollingService implements StrafficService {
 
 	 @Override
 	    public void execute(Model model) {
-	        // WebDriverManager를 사용하여 ChromeDriver 설정
-//		 WebDriverManager.chromedriver().driverVersion("125.0.6422.78").setup();
 		 
 		 System.setProperty("webdriver.chrome.driver", "C:\\Users\\goott4\\Desktop\\BgTrafficPrj\\chromedriver-win64\\chromedriver.exe");
 	        
