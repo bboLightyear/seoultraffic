@@ -1,19 +1,18 @@
 <div align="center">
 <h2>[2024] Seoul Traffic 🚗</h2>
-번거로운 전화, 연락 없이 빠른 견적내기 및 업체 컨택이 가능한 사이트 입니다!!<br> 
+서울시 교통사고 정보, 교통정보, 날씨 따릉이 정보 보여주는 교통지도 🗺<br> 
 </div>
 <br/>
 <br/>
 
-![설명 텍스트](src/main/webapp/resources/inbahead.png)
+![설명 텍스트](src/main/webapp/resources/img/st-home.png)
 <br/>
 <br/>
 
 ## 개요
-- 프로젝트 이름: Interiorbara
-- 프로젝트 지속기간: 2024.04-2024.05
+- 프로젝트 이름: Seoul Traffic (개인)
+- 프로젝트 지속기간: 2024.05-2024.06
 - 개발 엔진 및 언어: Spring & Java
-- 멤버: 팀장 : 조보근 팀원 : 강지수, 강선경, 김경태, 김성민, 장동길
 <br/>
 
 
@@ -35,11 +34,11 @@
 
 ## 담당 기능 (고객센터 파트 담당)
 
-|<img src="src/main/webapp/resources/bara-cshome.png" width="500" height="250"/>|<img src="src/main/webapp/resources/bara-csmail.png" width="500" height="250"/>|
+|<img src="src/main/webapp/resources/img/st-acci.png" width="500" height="250"/>|<img src="src/main/webapp/resources/img/st-pin.png" width="500" height="250"/>|
 |:---:|:---:|
-|고객센터화면|이메일문의|
-|<img src="src/main/webapp/resources/bara-cs content.png" width="500" height="250"/>|<img src="src/main/webapp/resources/bara-cs reply.png" width="500" height="250"/>|
-|고객센터 게시판|게시판 답글|
+|사고정보|사고정보 지도|
+|<img src="src/main/webapp/resources/img/st-chart.png" width="500" height="250"/>|<img src="src/main/webapp/resources/img/st-notice.png" width="500" height="250"/>|
+|교통사고 chart|게시판|
 <br/>
 
 ### 이메일을 통한 문의 📧
