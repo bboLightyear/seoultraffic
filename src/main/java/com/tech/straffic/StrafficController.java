@@ -1,25 +1,3 @@
-//package com.tech.straffic;
-//
-//import jakarta.servlet.http.HttpServletRequest;
-//
-//import org.apache.ibatis.session.SqlSession;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Controller;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RequestMethod;
-//import org.springframework.web.multipart.MultipartHttpServletRequest;
-//
-//import com.tech.straffic.service.CrollingService;
-//import com.tech.straffic.service.HomeNoticeService;
-//import com.tech.straffic.service.NoticeContentService;
-//import com.tech.straffic.service.NoticeDeleteService;
-//import com.tech.straffic.service.NoticeEditService;
-//import com.tech.straffic.service.NoticeListService;
-//import com.tech.straffic.service.NoticeWriteService;
-//import com.tech.straffic.service.StrafficService;
-//import com.tech.straffic.vo.SearchVO;
-
 package com.tech.straffic;
 
 import jakarta.servlet.http.HttpServletRequest;
