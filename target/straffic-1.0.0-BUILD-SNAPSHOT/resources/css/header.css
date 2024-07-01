@@ -1,0 +1,104 @@
+@charset "UTF-8";
+html {
+    width: 100%;
+}
+#header{
+    font-weight: bold;
+    /* background-color: #f9fcfb; */
+    background-color:white; 
+    display: flex;
+    border-bottom: 3px solid #1034a6;
+    height: 100px;
+    position: relative;  /* 추가 */
+    z-index: 100;       /* 추가 */
+}
+.wrapper{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.lists{
+    display: flex;
+    margin-right: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.lists_li{
+    list-style-type: none;
+    font-size: 19px;
+    width: 130px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lists_li > a{
+    text-decoration: none;
+    color: #1034a6;
+}
+.lists_li ul{
+    margin: 0;
+    padding: 0;
+}
+.depth_1{
+    display: none;
+    position: relative;
+    pointer-events: none; /* 포인터 이벤트를 받지 않음 */ 
+}
+/* 2차 메뉴가 보이도록 */
+.wrapper > ul > li:hover > ul {
+    display: block;
+    pointer-events: auto; /* 마우스 오버 시 포인터 이벤트 활성화 */
+}
+
+/* 1차 메뉴를 제한 구역으로 설정 */
+.wrapper > ul > li {
+    position: relative;
+}
+/* 2차 메뉴에 absolute 값을 주기 */
+.wrapper > ul > li > ul {
+    position: absolute;
+    top: 100%;		/* 2차 메뉴를 1차 메뉴의 아래에 위치시킨다 */
+    left: 0;		/* 2차 메뉴를 1차 메뉴의 왼쪽 벽에 붙인다 */
+    width: 100%;		/* 부모의 너비를 그대로 받아온다 */
+    background-color: #1034a6;
+    border: 0.1px solid #1034a6;
+}
+.wrapper > ul > li > ul > li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    list-style: none;
+    font-size: 16px;
+}
+.wrapper > ul > li > ul > li > a{
+    text-decoration: none;
+    color: white;
+}
+.wrapper > ul > li > ul > li:hover{
+    background-color: white;
+}
+.wrapper > ul > li > ul > li:hover > a{
+    color: #1034a6;
+}
+.title{
+    width: 30%;
+    font-size: 40px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.trans{
+    margin-right: 70px;
+    background-color: #1034a6;
+}
+.trans > a{
+    text-decoration: none;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}

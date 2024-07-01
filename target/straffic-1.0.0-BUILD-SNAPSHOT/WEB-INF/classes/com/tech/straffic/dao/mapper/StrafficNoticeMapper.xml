@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tech.straffic.dao.StrafficDao">
+	
+	<select id="homenotice" resultType="com.tech.straffic.dto.StrafficNoticeDto">
+		SELECT 
+    		SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC
+        FROM 
+        	(SELECT 
+        		ROWNUM NUM,N.* FROM (SELECT SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC 
+        	FROM 
+        		STRAFFICNOTICE 
+        	ORDER BY 
+        		SNO DESC ) 
+        	N)
+        WHERE NUM &lt; 6
+	</select>
+	
+	<select id="noticeList" resultType="com.tech.straffic.dto.StrafficNoticeDto">		
+		SELECT 
+        	SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC
+        FROM 
+        	(SELECT 
+        		ROWNUM NUM,N.* FROM (SELECT SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC 
+        	FROM 
+        		STRAFFICNOTICE WHERE STITLE LIKE '%'||#{param3}||'%'
+        	ORDER BY 
+        		SNO DESC ) 
+        	N)
+        WHERE NUM BETWEEN #{param1} AND #{param2}
+	</select>
+
+	<select id="noticeList1" resultType="com.tech.straffic.dto.StrafficNoticeDto">
+		SELECT SNO,STITLE,SCONTENT,SDATE,SHIT,SFILESRC 
+		FROM STRAFFICNOTICE
+		WHERE SNO = #{param1}
+	</select>
+	
+	<update id="noticewrite">
+		INSERT INTO STRAFFICNOTICE 
+		VALUES(STRAFFICNOTICE_SEQ.NEXTVAL,#{param1},#{param2},sysdate,0,#{param3})
+	</update>
+
+	<update id="noticeDelete">
+		DELETE FROM STRAFFICNOTICE WHERE SNO = #{param1} 
+	</update>
+	
+	<select id="selfilesrc" resultType="com.tech.straffic.dto.StrafficNoticeDto">
+		SELECT SFILESRC 
+		FROM STRAFFICNOTICE
+		WHERE SNO = #{param1}
+	</select>
+	
+   	<update id="noticeEdit">
+      	UPDATE STRAFFICNOTICE SET STITLE=#{param1},SCONTENT=#{param2},SFILESRC=#{param3} 
+      	WHERE SNO=#{param4}
+   	</update>
+	
+	<select id="selNoticeTotCount" resultType="Integer">
+      	SELECT COUNT(*)
+      	FROM STRAFFICNOTICE
+   	</select>
+	
+	<select id="busageyear" resultType="com.tech.straffic.dto.BUsageDto">
+		SELECT
+			  EXTRACT(YEAR FROM sdate) AS "sdate",
+			  AVG(susage) AS "susage"
+		FROM
+			  STRAFFICBUSAGE
+		GROUP BY
+		  	EXTRACT(YEAR FROM sdate)
+		ORDER BY
+		  	EXTRACT(YEAR FROM sdate)
+   	</select>   	
+
+	<select id="bsubrate" resultType="com.tech.straffic.dto.BSubRateDto">
+		SELECT
+		  	EXTRACT(YEAR FROM joindate) AS "joindate",
+		  	SUM(subscribers) AS "subscribers"
+		FROM
+		  	SUBRATE
+		GROUP BY
+		  	EXTRACT(YEAR FROM joindate)
+		ORDER BY
+		  	EXTRACT(YEAR FROM joindate)
+   	</select>   	
+
+	<select id="accidataavg" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			YEAR,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFOYEARAVG 
+   	</select>   	
+	
+	<select id="accidatatot" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			YEAR,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFOYEARTOT 
+   	</select>   	
+
+	<select id="accidatareg" parameterType="int" resultType="com.tech.straffic.dto.AcciDataDto">
+		SELECT 
+			REG,ACCI,ACCIPER10K,DEATHS,DEATHSPER10K,INJURED,INJUREDPER10K
+		FROM
+			ACCIINFO${year} 
+   	</select>   	
+
+    <select id="sppeddata" parameterType="int" resultType="com.tech.straffic.dto.TrafficSpeedAvgDto">
+		SELECT 
+		   "sdate","avg"
+	       "Jongno_gu", "Jung_gu", "Yongsan_gu", "Seongdong_gu", "Gwangjin_gu", 
+	       "Dongdaemun_gu", "Jungnang_gu", "Seongbuk_gu", "Gangbuk_gu", "Dobong_gu", 
+	       "Nowon_gu", "Eunpyeong_gu", "Seodaemun_gu", "Mapo_gu", "Yangcheon_gu", 
+	       "Gangseo_gu", "Guro_gu", "Geumcheon_gu", "Yeongdeungpo_gu", "Dongjak_gu", 
+	   	   "Gwanak_gu", "Seocho_gu", "Gangnam_gu", "Songpa_gu", "Gangdong_gu"
+		FROM 
+			TRAFFICSPEEDAVG
+		WHERE 
+			"sdate" LIKE '${year}%'
+    </select>
+   	
+</mapper>

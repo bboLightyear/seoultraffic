@@ -148,7 +148,7 @@ public class CrollingService implements StrafficService {
 	 @Override
 	    public void execute(Model model) {
 		 
-		 System.setProperty("webdriver.chrome.driver", "C:\\Users\\goott4\\Desktop\\BgTrafficPrj\\chromedriver-win64\\chromedriver.exe");
+		 System.setProperty("webdriver.chrome.driver", "C:\\Users\\bokun\\OneDrive\\바탕 화면\\BgTrafficPrj\\chromedriver-win64\\chromedriver.exe");
 	        
 	        // ChromeOptions 설정
 	        ChromeOptions options = new ChromeOptions();
